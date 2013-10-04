@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report5" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b8d48e5a-13ec-4448-b2d1-5677dc91fdee">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     professora.`Id` AS professora_Id,
+     professora.`ativo` AS professora_ativo,
+     professora.`cargaHoraria` AS professora_cargaHoraria,
+     professora.`cargo` AS professora_cargo,
+     professora.`cpf` AS professora_cpf,
+     professora.`emissaoRg` AS professora_emissaoRg,
+     professora.`estadoNasc` AS professora_estadoNasc,
+     professora.`funcao` AS professora_funcao,
+     professora.`lf` AS professora_lf,
+     professora.`munNasc` AS professora_munNasc,
+     professora.`nascimento` AS professora_nascimento,
+     professora.`nome` AS professora_nome,
+     professora.`rg` AS professora_rg,
+     professora.`sexo` AS professora_sexo,
+     professora.`ufRg` AS professora_ufRg,
+     professora.`vinculo` AS professora_vinculo,
+     professora.`contato_Id` AS professora_contato_Id,
+     professora.`endereco_Id` AS professora_endereco_Id
+FROM
+     `professora` professora]]>
+	</queryString>
+	<field name="professora_Id" class="java.lang.Integer"/>
+	<field name="professora_nome" class="java.lang.String"/>
+	<field name="professora_nascimento" class="java.lang.String"/>
+	<field name="professora_rg" class="java.lang.String"/>
+	<field name="professora_cpf" class="java.lang.String"/>
+	<field name="professora_cargaHoraria" class="java.lang.Integer"/>
+	<field name="professora_vinculo" class="java.lang.String"/>
+	<group name="professora_Id">
+		<groupExpression><![CDATA[$F{professora_Id}]]></groupExpression>
+		<groupHeader>
+			<band/>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="95" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="e76733f5-c225-4671-b462-1c9ec8e12753" style="Title" x="1" y="0" width="797" height="33"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="18" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[C.E. MARIA CÂNDIDA DE  JESUS-E.F.M.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ab0da560-86d5-429f-a3ff-6f64f01e1017" style="SubTitle" x="1" y="52" width="801" height="22"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Lista de Professores]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="17" splitType="Stretch">
+			<line>
+				<reportElement uuid="46972b5f-9536-49aa-97ba-5445c87ece3f" positionType="FixRelativeToBottom" x="0" y="15" width="802" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="5188f6ea-42fc-4891-a58d-7a0f30970353" style="Column header" x="31" y="2" width="229" height="15" forecolor="#000000"/>
+				<textElement/>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b9689a1d-b55c-46c6-a6fc-8b0e0eb90c80" style="Column header" x="265" y="1" width="133" height="15" forecolor="#000000"/>
+				<textElement/>
+				<text><![CDATA[Nascimento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6c0af607-d4cc-465b-83ec-3121247881ca" style="Column header" x="398" y="1" width="133" height="15" forecolor="#000000"/>
+				<textElement/>
+				<text><![CDATA[RG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a84c6b1b-f10d-429c-b4da-38a7c55421d7" style="Column header" x="531" y="1" width="133" height="15" forecolor="#000000"/>
+				<textElement/>
+				<text><![CDATA[CPF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c1d7c520-59e9-451b-99c4-2fdf30ca7b7a" style="Column header" x="664" y="1" width="61" height="15" forecolor="#000000"/>
+				<textElement/>
+				<text><![CDATA[CH]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b950b2fc-a91b-4eb0-8cda-841767da16b0" style="Column header" x="725" y="0" width="73" height="15" forecolor="#000000"/>
+				<textElement/>
+				<text><![CDATA[Vínculo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1789de1b-fc2b-48a5-b5a9-42d2c80d858c" x="1" y="1" width="30" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Id]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement uuid="873e6cc4-794f-4d26-9406-a5980bf1747c" style="Row" mode="Opaque" x="0" y="0" width="802" height="15" printWhenGroupChanges="professora_Id"/>
+				<box leftPadding="0">
+					<bottomPen lineWidth="0.1" lineStyle="Solid"/>
+				</box>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="f8a47c3a-7b2e-4237-be3d-690ae2d45052" style="Detail" x="31" y="0" width="229" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{professora_nome}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="1f0326ee-da63-42ee-91df-30324f2ad85a" style="Detail" x="398" y="0" width="133" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{professora_rg}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="40c3bee8-c8ab-48b3-abce-32e7c9b84ca9" style="Detail" x="725" y="0" width="73" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{professora_vinculo}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="7aba9b5c-161c-447b-93e2-ca59dd7a3640" style="Detail" x="664" y="0" width="61" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{professora_cargaHoraria}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="40e9ac37-14ab-49fc-b2d1-38753edacfdd" style="Detail" x="265" y="0" width="133" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{professora_nascimento}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="f85e1162-187e-4492-9d00-f4ca7709013c" style="Detail" x="531" y="0" width="133" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{professora_cpf}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="2734374a-42fa-45c8-bf1f-d716de620a4f" style="SubTitle" x="0" y="2" width="31" height="13" forecolor="#736343"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{professora_Id}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch">
+			<line>
+				<reportElement uuid="51ae64d6-e083-46d2-942b-3fd5854a744a" positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="26" splitType="Stretch">
+			<frame>
+				<reportElement uuid="e83e10fd-a018-484c-8c68-ad736c3223c7" mode="Opaque" x="0" y="2" width="802" height="24" forecolor="#FFFFFF" backcolor="#FFFFFF"/>
+				<textField evaluationTime="Report">
+					<reportElement uuid="d9753833-c7c1-4d57-9ecb-1a78bc7af812" style="Column header" x="758" y="1" width="40" height="20" forecolor="#736343"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="d8a2739a-79b1-41e0-9148-9f33f9c57573" style="Column header" x="678" y="1" width="80" height="20" forecolor="#736343"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement uuid="844208c1-17b2-434a-982b-8de22a3884c1" style="Column header" x="1" y="1" width="197" height="20" forecolor="#736343"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
