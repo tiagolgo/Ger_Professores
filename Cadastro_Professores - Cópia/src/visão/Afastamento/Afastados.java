@@ -20,6 +20,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import visão.Ajuda.Ajuda;
 
 /**
  *
@@ -93,13 +94,14 @@ public class Afastados extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaAfastados = new javax.swing.JTable();
-        Sair = new javax.swing.JButton();
-        alterarAfastamento = new javax.swing.JButton();
-        excluirAfastamento = new javax.swing.JButton();
-        detalhes_Afastamento = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
+        detalhes_Afastamento = new javax.swing.JButton();
+        alterarAfastamento = new javax.swing.JButton();
+        Sair = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -114,9 +116,9 @@ public class Afastados extends javax.swing.JDialog {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(339, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(340, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,39 +138,6 @@ public class Afastados extends javax.swing.JDialog {
         ));
         tabelaAfastados.setGridColor(new java.awt.Color(0, 0, 0));
         jScrollPane1.setViewportView(tabelaAfastados);
-
-        Sair.setText("Sair");
-        Sair.setToolTipText("Sair desta tela");
-        Sair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SairActionPerformed(evt);
-            }
-        });
-
-        alterarAfastamento.setText("Alterar");
-        alterarAfastamento.setToolTipText("Alterar Professor selecionado");
-        alterarAfastamento.setMargin(new java.awt.Insets(2, 2, 2, 2));
-        alterarAfastamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                alterarAfastamentoActionPerformed(evt);
-            }
-        });
-
-        excluirAfastamento.setText("Excluir");
-        excluirAfastamento.setToolTipText("Excluir Professor selecionado");
-        excluirAfastamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                excluirAfastamentoActionPerformed(evt);
-            }
-        });
-
-        detalhes_Afastamento.setText("Detalhes");
-        detalhes_Afastamento.setToolTipText("Detalhes dos Professores");
-        detalhes_Afastamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                detalhes_AfastamentoActionPerformed(evt);
-            }
-        });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 51, 51));
@@ -197,52 +166,92 @@ public class Afastados extends javax.swing.JDialog {
             }
         });
 
+        detalhes_Afastamento.setText("Detalhes");
+        detalhes_Afastamento.setToolTipText("Detalhes dos Professores");
+        detalhes_Afastamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                detalhes_AfastamentoActionPerformed(evt);
+            }
+        });
+
+        alterarAfastamento.setText("Alterar");
+        alterarAfastamento.setToolTipText("Alterar Professor selecionado");
+        alterarAfastamento.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        alterarAfastamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alterarAfastamentoActionPerformed(evt);
+            }
+        });
+
+        Sair.setText("Sair");
+        Sair.setToolTipText("Sair desta tela");
+        Sair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SairActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Ajuda");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(127, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(18, 18, 18)
+                .addComponent(detalhes_Afastamento, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(alterarAfastamento, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(Sair, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addContainerGap(69, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(detalhes_Afastamento)
+                    .addComponent(alterarAfastamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Sair)
+                    .addComponent(jButton2))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(121, 121, 121)
-                                .addComponent(jButton1)
-                                .addGap(40, 40, 40)
-                                .addComponent(detalhes_Afastamento, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(35, 35, 35)
-                                .addComponent(alterarAfastamento, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(31, 31, 31)
-                                .addComponent(excluirAfastamento, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Sair, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 15, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
-                    .addComponent(alterarAfastamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(detalhes_Afastamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Sair)
-                    .addComponent(excluirAfastamento)
-                    .addComponent(jButton1))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -278,35 +287,6 @@ public class Afastados extends javax.swing.JDialog {
 
     }//GEN-LAST:event_detalhes_AfastamentoActionPerformed
 
-    private void excluirAfastamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirAfastamentoActionPerformed
-        Dao_Afastamento da = new Dao_Afastamento();
-        Afastament afast = localizaAfastamento();
-        if (afast != null) {
-            Controller_Afastamento ca = new Controller_Afastamento();
-            Dao_Disciplina dd = new Dao_Disciplina();
-            boolean s = dd.getSupridasAfastamento(afast.getId(), sessão);
-
-            if (s) {
-                JOptionPane.showMessageDialog(null, "Afastamento não pode ser removido!");
-            } else {
-                for (Disciplinas disciplina : afast.getDisciplinas()) {
-                    disciplina.setSuprida(true);
-                    afast.getAfastado().setDisciplina(disciplina);
-                }
-                try {
-                    Transaction tr = this.sessão.beginTransaction();
-                    da.delete(afast, this.sessão);
-                    tr.commit();
-                    JOptionPane.showMessageDialog(null, "Afastamento Excluído");
-                    excluiLinha();
-                } catch (Exception ex) {
-                    this.sessão.beginTransaction().rollback();
-                    JOptionPane.showMessageDialog(null, "Erro ao tentar remover afastamento.");
-                }
-            }
-        }
-    }//GEN-LAST:event_excluirAfastamentoActionPerformed
-
     private void excluiLinha() {
         DefaultTableModel model = (DefaultTableModel) this.tabelaAfastados.getModel();
         model.removeRow(this.tabelaAfastados.getSelectedRow());
@@ -325,6 +305,11 @@ public class Afastados extends javax.swing.JDialog {
         removeLinhasTabela();
         carregarAfastados();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        new Ajuda().setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void removeLinhasTabela() {
         DefaultTableModel model = (DefaultTableModel) this.tabelaAfastados.getModel();
@@ -372,12 +357,13 @@ public class Afastados extends javax.swing.JDialog {
     private javax.swing.JButton Sair;
     private javax.swing.JButton alterarAfastamento;
     private javax.swing.JButton detalhes_Afastamento;
-    private javax.swing.JButton excluirAfastamento;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabelaAfastados;
     // End of variables declaration//GEN-END:variables

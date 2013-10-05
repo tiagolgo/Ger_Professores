@@ -5,6 +5,7 @@
 package visão.Ajuda;
 
 import Conexao.Hibernate_Sessao;
+import Dao.Dao_Entidades.Dao_Curso;
 import Dao.Dao_Entidades.Dao_Professor;
 import Dao.Dao_Entidades.Dao_Turma;
 import Entidades.Cursos;
@@ -22,6 +23,7 @@ import org.hibernate.Session;
  * @author Tiago
  */
 public class Teste {
+
     public static void main(String[] args) {
         //        Professora p = new Professora();
         //        p.setNome("Tiago luiz gomes de oliveira");
@@ -82,15 +84,16 @@ public class Teste {
         //        d4.setTurma(t);
         //
         //        Dao_Turma dt = new Dao_Turma();
-                Session sessao = Hibernate_Sessao.getInstance().retornaSession();
+        //        Session sessao = Hibernate_Sessao.getInstance().retornaSession();
+        //        Dao_Professor dp = new Dao_Professor();
+        boolean verDuplicidade = new Dao_Curso().verDuplicidade("ensino medio", "654", "matutino");
+        System.out.println("já há cursos "+verDuplicidade);
 
-        Dao_Professor dp = new Dao_Professor();
-        
-        try {
-                    List<Professora> r = dp.getPorTrechoNome("ti", sessao);
-            JOptionPane.showMessageDialog(null, "Encotrados "+r.size());
-        } catch (Exception ex) {
-            Logger.getLogger(Teste.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+////            List<Professora> r = dp.getPorTrechoNome("ti", sessao);
+//            JOptionPane.showMessageDialog(null, "Encotrados " + r.size());
+//        } catch (Exception ex) {
+//            Logger.getLogger(Teste.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }
 }

@@ -18,6 +18,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import visão.Ajuda.Ajuda;
 import visão.Detalhes_Disciplinas.Detalhes_Disciplinas;
 
 /**
@@ -51,11 +52,11 @@ public class Todas_Substituições extends javax.swing.JDialog {
         tabelaSubstituições = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        excluir = new javax.swing.JButton();
         Sair = new javax.swing.JButton();
         alterar = new javax.swing.JButton();
         detalhes = new javax.swing.JButton();
         novaSubstituicao = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -93,24 +94,15 @@ public class Todas_Substituições extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(237, Short.MAX_VALUE)
                 .addComponent(jLabel5)
-                .addContainerGap(237, Short.MAX_VALUE))
+                .addGap(237, 237, 237))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(12, Short.MAX_VALUE)
                 .addComponent(jLabel5)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
-
-        excluir.setBackground(new java.awt.Color(255, 102, 102));
-        excluir.setText("Excluir");
-        excluir.setToolTipText("Excluir Substituição selecionada");
-        excluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                excluirActionPerformed(evt);
-            }
-        });
 
         Sair.setText("Sair");
         Sair.setToolTipText("Sair desta tela");
@@ -144,6 +136,13 @@ public class Todas_Substituições extends javax.swing.JDialog {
             }
         });
 
+        jButton1.setText("Ajuda");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -151,21 +150,24 @@ public class Todas_Substituições extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(novaSubstituicao)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(detalhes, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(alterar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(Sair, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 708, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,47 +180,13 @@ public class Todas_Substituições extends javax.swing.JDialog {
                     .addComponent(novaSubstituicao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(detalhes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(alterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(excluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Sair))
+                    .addComponent(Sair)
+                    .addComponent(jButton1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void excluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirActionPerformed
-        // TODO add your handling code here:
-
-        Substituica aux = localizaSubstituicao();
-        if (aux != null) {
-            int op = JOptionPane.showConfirmDialog(null, "Confirmação", "Deseja realmente excluir a Substituição?\nOs dados referentes a esta Substituição serão permanentemente removidos e desfeitos.", 0);
-            if (op == 0) {
-                Dao_Substituicao ds = new Dao_Substituicao();
-                Dao_Professor p = new Dao_Professor();
-
-
-                for (Disciplinas disciplinas : aux.getDisciplinas()) {
-                    aux.getAfastamento().getDisciplinas().add(disciplinas);
-                    aux.getSubstituto().getDisciplinas().remove(disciplinas);
-                }
-
-                try {
-                    Transaction tr = this.sessão.beginTransaction();
-//                p.persist(aux.getAfastado(), sessão);
-//                    p.persist(aux.getSubstituto(), sessão);
-                    ds.delete(aux, this.sessão);
-                    tr.commit();
-                    //recarregarTabela
-                    carregaTabela();
-                } catch (Exception e) {
-                    this.sessão.beginTransaction().rollback();
-                    JOptionPane.showMessageDialog(null, "Erro ao excluir Substituição!");
-                }
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Selecione uma Substituição");
-        }
-    }//GEN-LAST:event_excluirActionPerformed
 
     private void SairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SairActionPerformed
         // TODO add your handling code here:
@@ -243,6 +211,11 @@ public class Todas_Substituições extends javax.swing.JDialog {
         removeLinhasTabela();
         carregaTabela();
     }//GEN-LAST:event_novaSubstituicaoActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        new Ajuda().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void removeLinhasTabela() {
         DefaultTableModel model = (DefaultTableModel) this.tabelaSubstituições.getModel();
@@ -336,7 +309,7 @@ public class Todas_Substituições extends javax.swing.JDialog {
     private javax.swing.JButton Sair;
     private javax.swing.JButton alterar;
     private javax.swing.JButton detalhes;
-    private javax.swing.JButton excluir;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

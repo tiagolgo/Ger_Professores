@@ -111,11 +111,11 @@ public class Cadastrar_Disciplina extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Código", "Disciplina", "Comp. Curricular"
+                "Id", "Código", "Disciplina", "Comp. Curricular"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -338,6 +338,7 @@ public class Cadastrar_Disciplina extends javax.swing.JDialog {
                 model = (DefaultTableModel) this.tabela_Grade.getModel();
 
                 model.addRow(new Object[]{
+                    d.getId(),
                     d.getCodigo(),
                     d.getNome(),
                     d.getCompCurric()
@@ -375,15 +376,17 @@ public class Cadastrar_Disciplina extends javax.swing.JDialog {
     private void EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarActionPerformed
 
         int linha = this.tabela_Grade.getSelectedRow();
-        String cod = (String) this.tabela_Grade.getValueAt(linha, 0);
-        String nome = (String) this.tabela_Grade.getValueAt(linha, 1);
-        String bnc = (String) this.tabela_Grade.getValueAt(linha, 2);
+        int id = Integer.parseInt(this.tabela_Grade.getValueAt(linha, 0).toString());
+        String cod = (String) this.tabela_Grade.getValueAt(linha, 1);
+        String nome = (String) this.tabela_Grade.getValueAt(linha, 2);
+        String bnc = (String) this.tabela_Grade.getValueAt(linha, 3);
 
+        
         this.código.setText(cod);
         this.disciplina.setText(nome);
         this.comp_Curricular.setSelectedItem(bnc);
 
-        Disciplinas retorno = new Dao_Disciplina().getPorCodigo(cod, this.sessao);
+        Disciplinas retorno = new Dao_Disciplina().getPorId(id, this.sessao);
         if (retorno != null) {
             this.novaDisc = retorno;
             this.atualizar = true;
@@ -393,22 +396,25 @@ public class Cadastrar_Disciplina extends javax.swing.JDialog {
     }//GEN-LAST:event_EditarActionPerformed
 
     private void ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExcluirActionPerformed
-//        int linha = this.tabela_Grade.getSelectedRow();
-//
-//        DefaultTableModel d = (DefaultTableModel) this.tabela_Grade.getModel();
-//        Dao_Disciplina dd = new Dao_Disciplina();
-//        int id = Integer.parseInt(this.tabela_Grade.getValueAt(linha, 0).toString());
-//        boolean ret = dd.exclusaoDisciplina(id);
-//        if (ret) {
-//            try {
-//                dd.deletePorId(id);
-//                JOptionPane.showMessageDialog(null, "Disciplina excluída com sucesso.");
-//                d.removeRow(linha);
-//            } catch (Exception ex) {
-//                JOptionPane.showMessageDialog(null, "Erro ao tentar exclur Disciplina.");
-//                Logger.getLogger(Cadastrar_Disciplina.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
+        int linha = this.tabela_Grade.getSelectedRow();
+
+        DefaultTableModel d = (DefaultTableModel) this.tabela_Grade.getModel();
+        Dao_Disciplina dd = new Dao_Disciplina();
+        String id = this.tabela_Grade.getValueAt(linha, 0).toString();
+        boolean ret = dd.exclusaoDisciplina(id);
+        if (ret) {
+            try {
+                dd.deletePorCodigo(id);
+                JOptionPane.showMessageDialog(null, "Disciplina excluída com sucesso.");
+                d.removeRow(linha);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Erro ao tentar excluir a Disciplina.");
+                Logger.getLogger(Cadastrar_Disciplina.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+                JOptionPane.showMessageDialog(null, "A Disciplina possui registros válidos e não pdoe ser excluída.");
+            
+        }
     }//GEN-LAST:event_ExcluirActionPerformed
 
     private void limpaCampos() {

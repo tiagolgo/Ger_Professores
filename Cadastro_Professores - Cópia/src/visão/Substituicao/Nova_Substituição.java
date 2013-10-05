@@ -24,6 +24,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import org.hibernate.Session;
 import visão.Afastamento.Novo_Afastamento;
+import visão.Ajuda.Ajuda_Substituicao;
 import visão.Professor.Consulta_Prof;
 
 public class Nova_Substituição extends javax.swing.JDialog {
@@ -85,6 +86,7 @@ public class Nova_Substituição extends javax.swing.JDialog {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         cancelar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -274,6 +276,13 @@ public class Nova_Substituição extends javax.swing.JDialog {
             }
         });
 
+        jButton1.setText("Ajuda");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -281,8 +290,10 @@ public class Nova_Substituição extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(inserir)
-                .addGap(97, 97, 97)
+                .addGap(18, 18, 18)
                 .addComponent(cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -295,9 +306,10 @@ public class Nova_Substituição extends javax.swing.JDialog {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(inserir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cancelar)
+                    .addComponent(inserir)
+                    .addComponent(jButton1))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
@@ -445,6 +457,11 @@ public class Nova_Substituição extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_select_AfastadoActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        new Ajuda_Substituicao().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     private void carregaComboProfessores() {
         Dao_Afastamento da = new Dao_Afastamento();
         List<Afastament> lp = da.list(this.sessão);
@@ -502,6 +519,7 @@ public class Nova_Substituição extends javax.swing.JDialog {
     private javax.swing.JButton cancelar;
     private javax.swing.JButton inserir;
     private javax.swing.JFormattedTextField inícioSubtituicao;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;

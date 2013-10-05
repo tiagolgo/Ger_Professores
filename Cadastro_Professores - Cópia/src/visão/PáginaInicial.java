@@ -10,6 +10,7 @@ import visão.Suprimento.Nova_Distribuição;
 import visão.Afastamento.Afastados;
 import visão.Cancelamento.Cancelamento_Tela;
 import visão.Afastamento.Novo_Afastamento;
+import visão.Ajuda.Ajuda;
 import visão.Cancelamento.Cancelamentos;
 import visão.Curso.Cursos_Cadastrados;
 import visão.Professor.Cadastro;
@@ -95,6 +96,7 @@ public class PáginaInicial extends javax.swing.JFrame {
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenu12 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -102,7 +104,7 @@ public class PáginaInicial extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(0, 204, 51));
-        setPreferredSize(new java.awt.Dimension(820, 650));
+        setPreferredSize(new java.awt.Dimension(820, 600));
 
         jToolBar1.setBackground(new java.awt.Color(255, 255, 255));
         jToolBar1.setRollover(true);
@@ -410,6 +412,14 @@ public class PáginaInicial extends javax.swing.JFrame {
         });
         jMenu12.add(jMenuItem4);
 
+        jMenuItem8.setText("Orientações");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenu12.add(jMenuItem8);
+
         jMenuBar1.add(jMenu12);
 
         setJMenuBar(jMenuBar1);
@@ -554,6 +564,11 @@ public class PáginaInicial extends javax.swing.JFrame {
         Relatorio r = new Relatorio();
         r.relatorioEmJFrame();
     }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        // TODO add your handling code here:
+        new Ajuda().setVisible(true);
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -621,6 +636,7 @@ public class PáginaInicial extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar.Separator jSeparator3;

@@ -7,16 +7,13 @@ package visão.Turma;
 import Conexao.Hibernate_Sessao;
 import Controller.Controller_Turma;
 import visão.Disciplina.*;
-import visão.Turma.*;
 import Dao.Dao_Entidades.Dao_Curso;
 import Dao.Dao_Entidades.Dao_Disciplina;
 import Dao.Dao_Entidades.Dao_Turma;
 import Entidades.Cursos;
-import Entidades.Disciplinas;
 import Entidades.Turmas;
 import java.awt.HeadlessException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -33,13 +30,10 @@ import visão.Curso.Novo_Curso;
 public class Cadastro_Turmas extends javax.swing.JDialog {
 
     private HashMap cursos = new HashMap();
-    private List<Turmas> turmas = new ArrayList();
+//    private List<Turmas> turmas = new ArrayList();
     private Cursos cursoSelecionado;
     private Turmas turmaNova;
-
-//    public static void main(String[] args) {
-//        new Cadastro_Turmas().setVisible(true);
-//    }
+    private boolean editar;
 
     public Cadastro_Turmas() {
         initComponents();
@@ -48,6 +42,8 @@ public class Cadastro_Turmas extends javax.swing.JDialog {
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
         carregarComboCurso();
+        this.insere_Disciplina.setEnabled(false);
+        this.editar = false;
     }
 
     @SuppressWarnings("unchecked")
@@ -104,9 +100,9 @@ public class Cadastro_Turmas extends javax.swing.JDialog {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(219, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(220, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,10 +139,8 @@ public class Cadastro_Turmas extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tabela_Grade);
 
-        sair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cancelar.png"))); // NOI18N
         sair.setText("Sair");
         sair.setToolTipText("Sair desta tela");
-        sair.setMargin(new java.awt.Insets(2, 2, 2, 14));
         sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sairActionPerformed(evt);
@@ -171,9 +165,9 @@ public class Cadastro_Turmas extends javax.swing.JDialog {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jLabel6)
-                .addGap(18, 254, Short.MAX_VALUE)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(jLabel4)
-                .addContainerGap(247, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -216,9 +210,7 @@ public class Cadastro_Turmas extends javax.swing.JDialog {
             }
         });
 
-        insere_Disciplina.setBackground(new java.awt.Color(255, 255, 255));
-        insere_Disciplina.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        insere_Disciplina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/add.png"))); // NOI18N
+        insere_Disciplina.setBackground(new java.awt.Color(0, 204, 51));
         insere_Disciplina.setText("Adicionar");
         insere_Disciplina.setToolTipText("Salvar Turma");
         insere_Disciplina.setMargin(new java.awt.Insets(2, 2, 2, 2));
@@ -232,66 +224,74 @@ public class Cadastro_Turmas extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(jLabel8)
-                .addGap(4, 4, 4)
-                .addComponent(curso, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel9)
-                .addGap(4, 4, 4)
-                .addComponent(serie, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(4, 4, 4)
-                .addComponent(seriacao, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58)
-                .addComponent(insere_Disciplina))
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(jLabel7))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addComponent(jLabel8)
+                                .addGap(4, 4, 4)
+                                .addComponent(curso, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel9)
+                                .addGap(4, 4, 4)
+                                .addComponent(serie, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel2)
+                                .addGap(4, 4, 4)
+                                .addComponent(seriacao, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(42, 42, 42)
+                                .addComponent(insere_Disciplina)))
+                        .addGap(0, 92, Short.MAX_VALUE)))
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel7))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 571, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(262, 262, 262)
-                .addComponent(sair, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(sair, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
+                        .addGap(19, 19, 19)
                         .addComponent(jLabel8))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(5, 5, 5)
+                        .addGap(16, 16, 16)
                         .addComponent(curso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
+                        .addGap(19, 19, 19)
                         .addComponent(jLabel9))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(5, 5, 5)
+                        .addGap(16, 16, 16)
                         .addComponent(serie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
+                        .addGap(19, 19, 19)
                         .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addComponent(seriacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(insere_Disciplina))
-                .addGap(11, 11, 11)
+                        .addGap(16, 16, 16)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(seriacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(insere_Disciplina))))
+                .addGap(10, 10, 10)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11)
                 .addComponent(jLabel7)
                 .addGap(1, 1, 1)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
-                .addComponent(sair))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 13, Short.MAX_VALUE)
+                .addComponent(sair, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         pack();
@@ -301,8 +301,8 @@ public class Cadastro_Turmas extends javax.swing.JDialog {
         Dao_Curso dc = new Dao_Curso();
         List<Cursos> list = dc.list();
         if (list.isEmpty()) {
-            int op = JOptionPane.showConfirmDialog(null, "Não há Cursos Cadastrados.\n", "Confirmação",0);
-            if (op==0) {
+            int op = JOptionPane.showConfirmDialog(null, "Não há Cursos Cadastrados.\n", "Confirmação", 0);
+            if (op == 0) {
                 new Novo_Curso().setVisible(true);
                 carregarComboCurso();
             }
@@ -329,13 +329,13 @@ public class Cadastro_Turmas extends javax.swing.JDialog {
 
     private boolean verificaDuplicidade() {
         int linhas = this.tabela_Grade.getRowCount();
-        int serie = Integer.parseInt(this.serie.getSelectedItem().toString());
-        Object seriacao = this.seriacao.getSelectedItem();
+        int se = Integer.parseInt(this.serie.getSelectedItem().toString());
+        Object ser = this.seriacao.getSelectedItem();
         for (int i = 0; i < linhas; i++) {
             int serieTab = Integer.parseInt(this.tabela_Grade.getValueAt(i, 1).toString());
             String seriacaoTab = (String) this.tabela_Grade.getValueAt(i, 2);
 
-            if (serie == serieTab & seriacao.equals(seriacaoTab)) {
+            if (se == serieTab & ser.equals(seriacaoTab)) {
                 return false;
             }
         }
@@ -356,14 +356,13 @@ public class Cadastro_Turmas extends javax.swing.JDialog {
     }//GEN-LAST:event_tabela_GradeMouseReleased
 
     private void EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarActionPerformed
-//        desmarcaTabela();
-//        int linha = this.tabela_Grade.getSelectedRow();
-//
-//        String disc = (String) this.tabela_Grade.getValueAt(linha, 2);
-//        Object ch = this.tabela_Grade.getValueAt(linha, 4);
-//
-//        this.seriacao.setSelectedItem(disc);
+        this.editar = true;
+        int linha = this.tabela_Grade.getSelectedRow();
+        String se = this.tabela_Grade.getValueAt(linha, 1).toString();
+        Object ser = this.tabela_Grade.getValueAt(linha, 2);
 
+        this.serie.setSelectedItem(se);
+        this.seriacao.setSelectedItem(ser);
     }//GEN-LAST:event_EditarActionPerformed
 
     private void ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExcluirActionPerformed
@@ -373,7 +372,7 @@ public class Cadastro_Turmas extends javax.swing.JDialog {
 //        int idCurso = this.cursoSelecionado.getId();
 
         Dao_Turma dt = new Dao_Turma();
-        boolean retorno = new Controller_Turma().verificaSeSupridosNaTurma(idTurmaTabela);
+        boolean retorno = dt.verDependencias(idTurmaTabela);
 
         if (retorno) {
             //se existir disciplina suprida na turma, impedir exclusão
@@ -390,24 +389,27 @@ public class Cadastro_Turmas extends javax.swing.JDialog {
                 recarregarTabela();
             } catch (HibernateException | HeadlessException ex) {
                 tr.rollback();
-                JOptionPane.showMessageDialog(null, "Turma não excluída\n" + ex.getCause());
+                JOptionPane.showMessageDialog(null, "Erro ao tentar excluir Turma \n" + ex.getCause());
             }
         }
     }//GEN-LAST:event_ExcluirActionPerformed
 
-    private void removeLinha(int linha) {
-        DefaultTableModel d = (DefaultTableModel) this.tabela_Grade.getModel();
-        d.removeRow(linha);
-    }
+//    private void removeLinha(int linha) {
+//        DefaultTableModel d = (DefaultTableModel) this.tabela_Grade.getModel();
+//        d.removeRow(linha);
+//    }
 
     private void insere_DisciplinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insere_DisciplinaActionPerformed
         // TODO add your handling code here:
         StringBuilder ver = verificaCampos();
         if (ver.length() == 0) {
-            this.turmaNova = new Turmas();
+            //se não for editar criar nova disciplina
+            if (!this.editar) {
+                this.turmaNova = new Turmas();
+            }
             this.turmaNova.setSerie(Integer.parseInt(this.serie.getSelectedItem().toString()));
             this.turmaNova.setSeriacao(this.seriacao.getSelectedItem().toString());
-           
+
             Dao_Turma dt = new Dao_Turma();
 
 //            if (dd.getDisciplinaTurmaId(disciplinaSelecionada)) {
@@ -433,6 +435,7 @@ public class Cadastro_Turmas extends javax.swing.JDialog {
 
         Cursos c = (Cursos) this.cursos.get(this.curso.getSelectedIndex());
         if (this.curso.getSelectedIndex() > 0) {
+            this.insere_Disciplina.setEnabled(true);
             removeLinhasTabela();
             //pegar turmas do curso selecionado
             List<Turmas> turm = new Dao_Turma().getTurmasIdCurso(c.getId());
@@ -457,13 +460,11 @@ public class Cadastro_Turmas extends javax.swing.JDialog {
     }//GEN-LAST:event_cursoActionPerformed
 
     private void recarregarTabela() {
-
         List<Turmas> turm = new Dao_Turma().getTurmasIdCurso(this.cursoSelecionado.getId());
         removeLinhasTabela();
         for (Turmas t : turm) {
             insereTurmaTabela(t);
         }
-
     }
 
     private void serieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serieActionPerformed
@@ -481,7 +482,6 @@ public class Cadastro_Turmas extends javax.swing.JDialog {
     private void insereTurmaTabela(Turmas c) {
         DefaultTableModel model = (DefaultTableModel) this.tabela_Grade.getModel();
         this.tabela_Grade.getRowCount();
-
         model.addRow(new Object[]{
             c.getId(),
             c.getSerie(),

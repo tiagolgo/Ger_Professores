@@ -79,9 +79,8 @@ public class Novo_Curso extends javax.swing.JDialog {
         turno = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel1.setBackground(new java.awt.Color(0, 51, 102));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         titulo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -105,34 +104,24 @@ public class Novo_Curso extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, -1));
-
         jLabel2.setText("Código*:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
-        getContentPane().add(codigoCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 77, 82, -1));
 
         jLabel3.setText("Nome*:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 118, -1, -1));
 
         nomeCurso.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 nomeCursoKeyReleased(evt);
             }
         });
-        getContentPane().add(nomeCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 115, 218, -1));
 
-        inserirCurso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/salvar.png"))); // NOI18N
         inserirCurso.setText("Salvar");
         inserirCurso.setToolTipText("Salvar o Curso");
-        inserirCurso.setMargin(new java.awt.Insets(2, 2, 2, 14));
         inserirCurso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inserirCursoActionPerformed(evt);
             }
         });
-        getContentPane().add(inserirCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 165, -1, 34));
 
-        cancelarCurso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cancelar.png"))); // NOI18N
         cancelarCurso.setText("Sair");
         cancelarCurso.setToolTipText("Sair da inserção de Curso");
         cancelarCurso.setMargin(new java.awt.Insets(2, 2, 2, 14));
@@ -141,13 +130,61 @@ public class Novo_Curso extends javax.swing.JDialog {
                 cancelarCursoActionPerformed(evt);
             }
         });
-        getContentPane().add(cancelarCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 166, 81, -1));
 
         jLabel4.setText("Turno*:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(293, 118, -1, -1));
 
         turno.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "Diurno", "Integral", "Matutino", "Noturno" }));
-        getContentPane().add(turno, new org.netbeans.lib.awtextra.AbsoluteConstraints(337, 115, 93, -1));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jLabel2)
+                .addGap(4, 4, 4)
+                .addComponent(codigoCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jLabel3)
+                .addGap(10, 10, 10)
+                .addComponent(nomeCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4)
+                .addGap(6, 6, 6)
+                .addComponent(turno, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(92, 92, 92)
+                .addComponent(inserirCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(78, 78, 78)
+                .addComponent(cancelarCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel2))
+                    .addComponent(codigoCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nomeCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(turno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))))
+                .addGap(42, 42, 42)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(inserirCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cancelarCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -168,7 +205,7 @@ public class Novo_Curso extends javax.swing.JDialog {
         if (ver.length() == 0) {
             Dao_Curso dc = new Dao_Curso();
 
-            boolean verDuplicidade = dc.retrievePorNome(curso.getCodigo(), curso.getNome(), curso.getTurno());
+            boolean verDuplicidade = dc.verDuplicidade(curso.getCodigo().toString(), curso.getNome().toString(), curso.getTurno().toString());
 
             if (verDuplicidade) {
 

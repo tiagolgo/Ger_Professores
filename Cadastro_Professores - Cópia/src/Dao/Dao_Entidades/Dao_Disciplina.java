@@ -24,7 +24,7 @@ public class Dao_Disciplina extends Dao_Generico<Disciplinas> {
 
     public List<Disciplinas> getModelos() {
         Session sessao = Hibernate_Sessao.getInstance().retornaSession();
-        List<Disciplinas> res = (List<Disciplinas>) sessao.createQuery("FROM Disciplinas").list();
+        List<Disciplinas> res = (List<Disciplinas>) sessao.createQuery("FROM Disciplinas where modelo=true").list();
         sessao.beginTransaction().commit();
 //        sessao.close();
         return res;
@@ -32,7 +32,7 @@ public class Dao_Disciplina extends Dao_Generico<Disciplinas> {
 
     public List<Disciplinas> getNaoSupridas() {
         Session sessao = Hibernate_Sessao.getInstance().retornaSession();
-        List<Disciplinas> res = (List<Disciplinas>) sessao.createQuery("FROM Disciplinas WHERE suprida=false and id_Turma>''").list();
+        List<Disciplinas> res = (List<Disciplinas>) sessao.createQuery("FROM Disciplinas WHERE suprida=false and id_Turma<>''").list();
         sessao.beginTransaction().commit();
 //        sessao.close();
         return res;
@@ -64,9 +64,9 @@ public class Dao_Disciplina extends Dao_Generico<Disciplinas> {
         return false;
     }
 
-    public boolean deletePorId(int id) throws Exception{
+    public boolean deletePorCodigo(String id) throws Exception{
         Session sessao = Hibernate_Sessao.getInstance().retornaSession();
-        int res = sessao.createSQLQuery("DELETE FROM Disciplinas WHERE id=:i").setParameter("i", id).executeUpdate();
+        int res = sessao.createSQLQuery("DELETE FROM Disciplinas WHERE codigo=:i").setParameter("i", id).executeUpdate();
         sessao.beginTransaction().commit();
         if (res > 0) {
             return true;
@@ -99,10 +99,11 @@ public class Dao_Disciplina extends Dao_Generico<Disciplinas> {
         Disciplinas d = (Disciplinas) sessao.createQuery("FROM Disciplinas WHERE codigo=:c").setParameter("c", codigo).uniqueResult();
         return d;
     }
+    public Disciplinas getPorId(int id, Session sessao) {
+        Disciplinas d = (Disciplinas) sessao.createQuery("FROM Disciplinas WHERE id=:c").setParameter("c", id).uniqueResult();
+        return d;
+    }
 
-//    public boolean verificaRegistro(int id, Session sessao){
-////        sessao.createQuery("FROM Disciplinas WHERE id_Supimcodigo=:c").setParameter("c", codigo).uniqueResult();
-//    }
     public List<Disciplinas> getNaoSupridasTurma(int id, Session sessao) {
         List<Disciplinas> list = sessao.createQuery("FROM Disciplinas WHERE suprida=false and id_Turma=:i").setParameter("i", id).list();
         return list;
@@ -116,10 +117,11 @@ public class Dao_Disciplina extends Dao_Generico<Disciplinas> {
         return false;
     }
 
-    public boolean exclusaoDisciplina(int id) {
+    public boolean exclusaoDisciplina(String codigo) {
         Session sessao = Hibernate_Sessao.getInstance().retornaSession();
-        int ret = sessao.createSQLQuery("select*from Disciplinas where codigo=:i and suprida=true and id_Supim!=''").setParameter("i", id).executeUpdate();
-        if (ret > 0) {
+        List ret = sessao.createSQLQuery("select*from Disciplinas where codigo=:i and suprida=true and id_Supim is not null").setParameter("i", codigo).list();
+        System.out.println("tamanho da lista "+ret.size());
+        if (ret.size() > 0) {
             return false;
         }
         return true;

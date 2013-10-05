@@ -29,7 +29,6 @@ public class Dao_Turma extends Dao_Generico<Turmas> {
 
     public boolean verDuplicidade(Turmas d) {
         Session sessao = Hibernate_Sessao.getInstance().retornaSession();
-        System.out.println("serie "+d.getSerie()+" seriacao "+d.getSeriacao()+" curso "+d.getCurso().getId());
         List<Turmas> res = (List<Turmas>) sessao.createQuery("FROM Turmas WHERE seriacao=:c and serie=:n and id_Curso=(SELECT id FROM Cursos where id=:curso)").setParameter("c", d.getSeriacao()).setParameter("n", d.getSerie()).setParameter("curso", d.getCurso().getId()).list();
         sessao.beginTransaction().commit();
         if (res.isEmpty()) {
@@ -53,5 +52,13 @@ public class Dao_Turma extends Dao_Generico<Turmas> {
         return false;
     }
     
+    public boolean verDependencias(int id){
+        Session sessao = Hibernate_Sessao.getInstance().retornaSession();
+        List<Turmas> res = (List<Turmas>) sessao.createQuery("from Disciplinas where suprida=true and id_Supim is not null and id_Turma=:i").setParameter("i", id).list();
+        if (res.size()>0) {
+            return false;
+        }
+        return true;
+    }
    
 }

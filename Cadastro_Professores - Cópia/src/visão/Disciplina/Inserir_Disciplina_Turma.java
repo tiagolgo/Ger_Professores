@@ -397,7 +397,7 @@ public class Inserir_Disciplina_Turma extends javax.swing.JDialog {
                         JOptionPane.showMessageDialog(null, "A Disciplina está suprida e não pode ser excluida!\nDisciplinas supridas não podem ser desvinculadas da Turma.");
                     } else {
                         try {
-                            new Dao_Disciplina().deletePorId(d.getId());
+                            new Dao_Disciplina().deletePorCodigo(d.getCodigo());
 
                             JOptionPane.showMessageDialog(null, "Disciplina removida com sucesso!");
                             removeLinha(linha);

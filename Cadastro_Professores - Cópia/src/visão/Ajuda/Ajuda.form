@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jPanel1" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jScrollPane2" alignment="1" pref="642" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="jButton1" min="-2" pref="62" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane2" min="-2" pref="314" max="-2" attributes="0"/>
+              <EmptySpace pref="7" max="32767" attributes="0"/>
+              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="jPanel1">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="33" red="0" type="rgb"/>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace pref="312" max="32767" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="312" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="16" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="AJUDA"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextArea" name="jTextArea2">
+          <Properties>
+            <Property name="columns" type="int" value="20"/>
+            <Property name="rows" type="int" value="5"/>
+            <Property name="text" type="java.lang.String" value="&#xa;SISTEMA DE GERENCIAMENTO DE PROFESSORES&#xa;O Sistema de Gerenciamento de Professores foi elaborado para auxiliar no processo de gerenciamento das Aulas/Disciplinas, conforme necessidades dos estabelecimentos de ensino da rede estadual do Paran&#xe1;.&#xa;&#xa;Condi&#xe7;&#xf5;es para o funcionamento do Sistema.&#xa;As opera&#xe7;&#xf5;es baseiam se em torno de Professor x Disciplina, portanto s&#xe3;o necess&#xe1;rios os seguintes procedimentos:&#xa;- Cadastro de Professor;&#xa;- Cadastro de Curso;&#xa;- Cadastro de Turmas no Curso;&#xa;- Cadastro de Disciplinas na Turma;&#xa;&#xa;&#xa;SUPRIMENTO&#xa;&#xa;1 &#x2013; O que &#xe9; um Suprimento?&#xa;&#xc9; a simples atribui&#xe7;&#xe3;o de Disciplina a um Professor.&#xa;&#xa;2 &#x2013; Como proceder?&#xa;- Busque o professor;&#xa;- Selecione o curso;&#xa;- Selecione a turma;&#xa;- selecione as disciplinas;&#xa;- e, informe a data oficial de in&#xed;cio das atividades.&#xa;&#xa;3 &#x2013; Restri&#xe7;&#xf5;es:&#xa;Um suprimento realizado, n&#xe3;o poder&#xe1; ser exclu&#xed;do. Para rever um suprimento indevido, realize o Cancelamento das Disciplinas atribu&#xed;das ao Professor.&#xa;&#xa;4 &#x2013; Condi&#xe7;&#xf5;es:&#xa;Exist&#xea;ncia de Professor devidamente cadastrado.&#xa;Exist&#xea;ncia de Disciplinas cadastradas e n&#xe3;o supridas.&#xa;&#xa;&#xa;CANCELAMENTO&#xa;&#xa;1 &#x2013; O que &#xe9; um Cancelamento?&#xa;&#xc9; o Cancelamento/Destitui&#xe7;&#xe3;o definitiva de Disciplinas de um Professor.&#xa;&#xa;2 &#x2013; Como proceder?&#xa;&#x9;- Busque o Professor;&#xa;&#x9;- Selecione as Disciplinas que ser&#xe3;o Canceladas;&#xa;&#x9;- Informe a data oficial de fim das atividades do Professor. &#xa;&#xa;3 &#x2013; Restri&#xe7;&#xf5;es:&#xa;Um Cancelamento realizado, n&#xe3;o poder&#xe1; ser exclu&#xed;do. Para reaver as Disciplinas Canceladas indevidamente de um Professor, proceda com Novo Suprimento.&#xa;&#xa;4 &#x2013; Condi&#xe7;&#xf5;es:&#xa;Exist&#xea;ncia de Professor devidamente cadastrado e suprido com disciplinas;&#xa;&#xa;&#xa;AFASTAMENTO&#xa;&#xa;1 &#x2013; O que &#xe9; um Afastamento?&#xa;&#xc9; Afastamento tempor&#xe1;rio do Professor para determinadas Disciplinas. O Afastamento &#xe9; condi&#xe7;&#xe3;o necess&#xe1;ria para a realiza&#xe7;&#xe3;o de Substitui&#xe7;&#xe3;o.&#xa;&#xa;2 &#x2013; Como proceder?&#xa;- Busque o Professor a ser Afastado;&#xa;- Selecione a(s) Disciplina(s) da(s) qual(quais) o Professor ir&#xe1; se Afastar;&#xa;- Informe a data oficial de in&#xed;cio e fim do afastamento e informe o motivo do afastamento.&#xa;&#xa;3 - Restri&#xe7;&#xf5;es:&#xa;Um Afastamento realizado n&#xe3;o poder&#xe1; ser exclu&#xed;do. Para rever um afastamento indevido, proceda com Novo Suprimento do Afastado.&#xa;&#xa;4 &#x2013; Condi&#xe7;&#xf5;es:&#xa;&#x9;- Exist&#xea;ncia de Professor devidamente cadastrado e suprido com disciplinas;&#xa;&#xa;SUBSTITUI&#xc7;&#xc3;O&#xa;1 &#x2013; O que &#xe9; uma Substitui&#xe7;&#xe3;o?&#xa;&#xc9; a Substitui&#xe7;&#xe3;o de Disciplinas de um professor Afastado, por um Professor efetivo. &#xc9; necess&#xe1;ria a exist&#xea;ncia de Professor afastado para este procedimento.&#xa;2 &#x2013; Como proceder?&#xa;&#x9;- Selecione o Afastado;&#xa;&#x9;- Selecione o Substituto;&#xa;&#x9;- Selecione a(s) Disciplina(s) a serem substitu&#xed;das pelo substituto;&#xa;&#x9;- Informe o in&#xed;cio oficial da substitui&#xe7;&#xe3;o.&#xa;3 &#x2013; Restri&#xe7;&#xf5;es.&#xa;Uma substitui&#xe7;&#xe3;o realizada, n&#xe3;o poder&#xe1; ser exclu&#xed;da. Proceda com Novo Cancelamento das Disciplinas atribu&#xed;das ao Substituto.&#xa;&#xa;4 &#x2013; Condi&#xe7;&#xf5;es:&#xa; &#x9;- &#xc9; necess&#xe1;rio que a exist&#xea;ncia de Professor afastado;&#xa;&#x9;- &#xc9; necess&#xe1;rio que o substituto esteja devidamente cadastrado;"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JButton" name="jButton1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Sair"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
+    </Component>
+  </SubComponents>
+</Form>
