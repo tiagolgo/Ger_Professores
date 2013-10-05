@@ -56,6 +56,5 @@ public class Controller_Disciplina {
         return not;
     }
 
-    public void exclusaoDisciplina(Disciplinas d) {
-    }
+   
 }

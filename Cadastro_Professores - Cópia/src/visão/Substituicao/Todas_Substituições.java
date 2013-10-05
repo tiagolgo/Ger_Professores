@@ -43,7 +43,6 @@ public class Todas_Substituições extends javax.swing.JDialog {
 //    public static void main(String[] args) {
 //        new Todas_Substituições().setVisible(true);
 //    }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -56,9 +55,9 @@ public class Todas_Substituições extends javax.swing.JDialog {
         Sair = new javax.swing.JButton();
         alterar = new javax.swing.JButton();
         detalhes = new javax.swing.JButton();
+        novaSubstituicao = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tabelaSubstituições.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -79,8 +78,6 @@ public class Todas_Substituições extends javax.swing.JDialog {
         tabelaSubstituições.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
         tabelaSubstituições.setRowHeight(20);
         jScrollPane1.setViewportView(tabelaSubstituições);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 54, 708, 302));
 
         jPanel2.setBackground(new java.awt.Color(0, 51, 102));
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -106,41 +103,30 @@ public class Todas_Substituições extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 708, -1));
-
         excluir.setBackground(new java.awt.Color(255, 102, 102));
-        excluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/lixeira.png"))); // NOI18N
         excluir.setText("Excluir");
         excluir.setToolTipText("Excluir Substituição selecionada");
-        excluir.setMargin(new java.awt.Insets(2, 2, 2, 14));
         excluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 excluirActionPerformed(evt);
             }
         });
-        getContentPane().add(excluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(367, 374, -1, 34));
 
-        Sair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cancelar.png"))); // NOI18N
         Sair.setText("Sair");
         Sair.setToolTipText("Sair desta tela");
-        Sair.setMargin(new java.awt.Insets(2, 2, 2, 14));
         Sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SairActionPerformed(evt);
             }
         });
-        getContentPane().add(Sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 374, 91, 34));
 
-        alterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/disciplina.png"))); // NOI18N
         alterar.setText("Alterar");
         alterar.setToolTipText("Alterar Substituição selecionada");
-        alterar.setMargin(new java.awt.Insets(2, 2, 2, 14));
         alterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 alterarActionPerformed(evt);
             }
         });
-        getContentPane().add(alterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 374, -1, 34));
 
         detalhes.setText("Detalhes");
         detalhes.setToolTipText("Disciplinas da Substituição");
@@ -149,7 +135,53 @@ public class Todas_Substituições extends javax.swing.JDialog {
                 detalhesActionPerformed(evt);
             }
         });
-        getContentPane().add(detalhes, new org.netbeans.lib.awtextra.AbsoluteConstraints(176, 374, 84, 34));
+
+        novaSubstituicao.setText("+ Substituição");
+        novaSubstituicao.setToolTipText("Nova Substituição");
+        novaSubstituicao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                novaSubstituicaoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(novaSubstituicao)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(detalhes, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(alterar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Sair, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 708, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
+                    .addComponent(novaSubstituicao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(detalhes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(alterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(excluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Sair))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -204,6 +236,22 @@ public class Todas_Substituições extends javax.swing.JDialog {
             new Detalhes_Disciplinas(s.getDisciplinas(), this.sessão).setVisible(true);
         }
     }//GEN-LAST:event_detalhesActionPerformed
+
+    private void novaSubstituicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novaSubstituicaoActionPerformed
+        // TODO add your handling code here:
+        new Nova_Substituição().setVisible(true);
+        removeLinhasTabela();
+        carregaTabela();
+    }//GEN-LAST:event_novaSubstituicaoActionPerformed
+
+    private void removeLinhasTabela() {
+        DefaultTableModel model = (DefaultTableModel) this.tabelaSubstituições.getModel();
+        int linhas = this.tabelaSubstituições.getRowCount();
+        while (linhas > 0) {
+            model.removeRow(0);
+            linhas--;
+        }
+    }
 
     private Substituica localizaSubstituicao() {
         int linha;
@@ -292,6 +340,7 @@ public class Todas_Substituições extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton novaSubstituicao;
     private javax.swing.JTable tabelaSubstituições;
     // End of variables declaration//GEN-END:variables
 }

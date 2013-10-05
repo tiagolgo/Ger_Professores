@@ -32,10 +32,11 @@ public class Todos_Professores extends javax.swing.JDialog {
         this.setTitle("Professores Cadastrados");
         this.setLocationRelativeTo(null);
     }
+
     public Todos_Professores(List<Professora> p) {
         initComponents();
         super.setModal(true);
-        this.professores=p;
+        this.professores = p;
         this.setTitle("Professores Cadastrados");
         this.setLocationRelativeTo(null);
         preencheTabela();
@@ -44,7 +45,6 @@ public class Todos_Professores extends javax.swing.JDialog {
 //    public static void main(String[] args) {
 //        new Todos_Professores().setVisible(true);
 //    }
-
     private void buscaDadosProf() {
         this.sessão = Hibernate_Sessao.getInstance().retornaSession();
         Dao_Professor dp = new Dao_Professor();
@@ -81,6 +81,7 @@ public class Todos_Professores extends javax.swing.JDialog {
         excluir = new javax.swing.JButton();
         sair = new javax.swing.JToggleButton();
         jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -118,30 +119,24 @@ public class Todos_Professores extends javax.swing.JDialog {
         ));
         jScrollPane1.setViewportView(tabela_Professores);
 
-        alterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/disciplina.png"))); // NOI18N
         alterar.setText("Alterar");
         alterar.setToolTipText("Alterar dados do Professor selecionado");
-        alterar.setMargin(new java.awt.Insets(2, 2, 2, 14));
         alterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 alterarActionPerformed(evt);
             }
         });
 
-        excluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/lixeira.png"))); // NOI18N
         excluir.setText("Excluir");
         excluir.setToolTipText("Excluir professor selecionado");
-        excluir.setMargin(new java.awt.Insets(2, 2, 2, 14));
         excluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 excluirActionPerformed(evt);
             }
         });
 
-        sair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cancelar.png"))); // NOI18N
         sair.setText("Sair");
         sair.setToolTipText("Sair desta tela");
-        sair.setMargin(new java.awt.Insets(2, 2, 2, 14));
         sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sairActionPerformed(evt);
@@ -151,24 +146,37 @@ public class Todos_Professores extends javax.swing.JDialog {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("PROFESSORES CADASTRADOS");
 
+        jButton1.setText("Novo");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(280, 280, 280)
-                .addComponent(jLabel2))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
+                .addComponent(alterar, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60)
+                .addComponent(excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56)
+                .addComponent(sair, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 702, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(242, 242, 242)
-                .addComponent(alterar)
-                .addGap(18, 18, 18)
-                .addComponent(excluir)
-                .addGap(18, 18, 18)
-                .addComponent(sair, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(280, 280, 280)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 702, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,17 +186,13 @@ public class Todos_Professores extends javax.swing.JDialog {
                 .addComponent(jLabel2)
                 .addGap(11, 11, 11)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(alterar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(sair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addContainerGap())
-                            .addComponent(excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(alterar)
+                    .addComponent(excluir)
+                    .addComponent(jButton1)
+                    .addComponent(sair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -198,7 +202,7 @@ public class Todos_Professores extends javax.swing.JDialog {
         // TODO add your handling code here:
         Professora p = localizaProfessor();
         if (p != null) {
-            new Cadastro(p, true).setVisible(true);
+            new Cadastro(p, this.sessão).setVisible(true);
             limparTabela();
             buscaDadosProf();
         }
@@ -248,8 +252,16 @@ public class Todos_Professores extends javax.swing.JDialog {
             } else {
                 JOptionPane.showMessageDialog(null, retorno);
             }
+        }
     }//GEN-LAST:event_excluirActionPerformed
-    }
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        new Cadastro().setVisible(true);
+        buscaDadosProf();
+        limparTabela();
+        preencheTabela();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void removeLinha() {
         int linha = this.tabela_Professores.getSelectedRow();
@@ -310,6 +322,7 @@ public class Todos_Professores extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton alterar;
     private javax.swing.JButton excluir;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

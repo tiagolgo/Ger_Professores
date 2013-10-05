@@ -34,7 +34,7 @@ import org.hibernate.Transaction;
 import visão.Curso.Novo_Curso;
 import visão.Disciplina.Cadastrar_Disciplina;
 import visão.Disciplina.Inserir_Disciplina_Turma;
-import visão.Turma.Antigo_cadastro;
+import visão.Turma.Cadastro_Turmas;
 
 /**
  *
@@ -147,10 +147,8 @@ public class Nova_Distribuição extends javax.swing.JDialog {
         jScrollPane1.setViewportView(tabela_Distribuição);
 
         cancelar.setBackground(new java.awt.Color(255, 153, 0));
-        cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cancelar.png"))); // NOI18N
         cancelar.setText("Sair");
         cancelar.setToolTipText("Cancelar as ações");
-        cancelar.setMargin(new java.awt.Insets(2, 2, 2, 14));
         cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelarActionPerformed(evt);
@@ -158,10 +156,8 @@ public class Nova_Distribuição extends javax.swing.JDialog {
         });
 
         inserir.setBackground(new java.awt.Color(0, 204, 51));
-        inserir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/salvar.png"))); // NOI18N
         inserir.setText("Salvar");
         inserir.setToolTipText("Gravar as ações");
-        inserir.setMargin(new java.awt.Insets(2, 2, 2, 14));
         inserir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inserirActionPerformed(evt);
@@ -298,7 +294,8 @@ public class Nova_Distribuição extends javax.swing.JDialog {
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(inserir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.getAccessibleContext().setAccessibleName("Grade");
@@ -411,7 +408,7 @@ public class Nova_Distribuição extends javax.swing.JDialog {
                 int op = JOptionPane.showConfirmDialog(null, "Não há Turmas para este curso!\nDeseja Cadastrar?");
                 if (op == 0) {
                     this.dispose();
-                    new Antigo_cadastro().setVisible(true);
+                    new Cadastro_Turmas().setVisible(true);
                 }
             } else {
                 excluiLinhas();

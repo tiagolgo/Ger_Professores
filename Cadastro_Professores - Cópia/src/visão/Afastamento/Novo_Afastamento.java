@@ -117,7 +117,6 @@ public class Novo_Afastamento extends javax.swing.JDialog {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        inserir = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         inicioAfastamento = new javax.swing.JFormattedTextField();
@@ -131,9 +130,9 @@ public class Novo_Afastamento extends javax.swing.JDialog {
         afastado = new javax.swing.JLabel();
         motivo = new javax.swing.JComboBox();
         cancelar = new javax.swing.JButton();
+        inserir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 51, 102));
         jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -147,9 +146,9 @@ public class Novo_Afastamento extends javax.swing.JDialog {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(323, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(323, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,19 +157,6 @@ public class Novo_Afastamento extends javax.swing.JDialog {
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, -1));
-
-        inserir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/salvar.png"))); // NOI18N
-        inserir.setText("Salvar");
-        inserir.setToolTipText("Salvar os dados");
-        inserir.setMargin(new java.awt.Insets(2, 2, 2, 2));
-        inserir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inserirActionPerformed(evt);
-            }
-        });
-        getContentPane().add(inserir, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 391, 97, 33));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -265,26 +251,22 @@ public class Novo_Afastamento extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(afastado, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(afastado, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(11, 11, 11)))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(afastado, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel6))
+                    .addComponent(buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(21, 21, 21)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(inicioAfastamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -295,9 +277,6 @@ public class Novo_Afastamento extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 51, -1, -1));
-
-        cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cancelar.png"))); // NOI18N
         cancelar.setText("Sair");
         cancelar.setToolTipText("Sair desta tela");
         cancelar.setMargin(new java.awt.Insets(2, 2, 2, 2));
@@ -306,7 +285,47 @@ public class Novo_Afastamento extends javax.swing.JDialog {
                 cancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(424, 391, 95, -1));
+
+        inserir.setText("Salvar");
+        inserir.setToolTipText("Sair desta tela");
+        inserir.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        inserir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inserirActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(inserir, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addComponent(cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cancelar)
+                    .addComponent(inserir))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -321,7 +340,7 @@ public class Novo_Afastamento extends javax.swing.JDialog {
         Consulta_Prof consulta = new Consulta_Prof(this, this.sessao);
         consulta.setVisible(true);
     }//GEN-LAST:event_buscarActionPerformed
-    
+
     private boolean movimentaDisciplina() {
 
         for (int i = 0; i < this.tabelaDisciplinas.getRowCount(); i++) {
@@ -373,7 +392,7 @@ public class Novo_Afastamento extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "data fim invalica");
             notificacao.append("Data de Fim inválida.\n");
         }
-        if (afast.equals("")||afast.equals(" ")) {
+        if (afast.equals("") || afast.equals(" ")) {
             JOptionPane.showMessageDialog(null, "professor vazio");
             notificacao.append("Busque um Professor.\n");
         }
@@ -385,17 +404,33 @@ public class Novo_Afastamento extends javax.swing.JDialog {
         return notificacao;
     }
 
+    private void confirma_NovoAfastamento() {
+        int opção = JOptionPane.showConfirmDialog(null, "Afastamento Inserido!\nDeseja realizar novo Afastamento?", "Confirmação", 0);
+        if (opção == 0) {
+            limpaCampos();
+        } else {//fecha se o usuário não quiser realizar novo cancelamento
+            this.dispose();
+        }
+    }
+
+    private void afastadoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_afastadoKeyReleased
+        // TODO add your handling code here:
+        if (evt.getKeyChar() == 10) {
+            buscarActionPerformed(null);
+        }
+    }//GEN-LAST:event_afastadoKeyReleased
+
     private void inserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inserirActionPerformed
         // TODO add your handling code here:
         Dao_Afastamento dp = new Dao_Afastamento();
         StringBuilder not = validaCampos();
-        if (not.length()==0) {
+        if (not.length() == 0) {
             afastamento.setDataAfas(new DataDoSistema().getDataAtual());
             afastamento.setInicio(this.inicioAfastamento.getText().replaceAll("/", ""));
             afastamento.setFim(this.fimAfastamento.getText().replaceAll("/", ""));
             afastamento.setMotivo(this.motivo.getSelectedItem().toString());
             if (movimentaDisciplina()) {
-                
+
                 if (!this.alterar) {
                     this.afastamento.setAfastado(this.professor);
                 }
@@ -413,26 +448,10 @@ public class Novo_Afastamento extends javax.swing.JDialog {
                     System.out.println("Erro ao gravar alteração");
                 }
             }
-        }else{
-            JOptionPane.showMessageDialog(null, "Notificacão "+not);
+        } else {
+            JOptionPane.showMessageDialog(null, "Notificacão " + not);
         }
     }//GEN-LAST:event_inserirActionPerformed
-
-    private void confirma_NovoAfastamento() {
-        int opção = JOptionPane.showConfirmDialog(null, "Afastamento Inserido!\nDeseja realizar novo Afastamento?", "Confirmação", 0);
-        if (opção == 0) {
-            limpaCampos();
-        } else {//fecha se o usuário não quiser realizar novo cancelamento
-            this.dispose();
-        }
-    }
-
-    private void afastadoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_afastadoKeyReleased
-        // TODO add your handling code here:
-        if (evt.getKeyChar() == 10) {
-            buscarActionPerformed(null);
-        }
-    }//GEN-LAST:event_afastadoKeyReleased
 
     private void configuraTabela() {
         TableColumnModel model = this.tabelaDisciplinas.getColumnModel();
@@ -463,38 +482,38 @@ public class Novo_Afastamento extends javax.swing.JDialog {
         }
     }
 
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(Novo_Afastamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(Novo_Afastamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(Novo_Afastamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(Novo_Afastamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            @Override
-//            public void run() {
-//                new Novo_Afastamento().setVisible(true);
-//            }
-//        });
-//    }
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Novo_Afastamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Novo_Afastamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Novo_Afastamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Novo_Afastamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new Novo_Afastamento().setVisible(true);
+            }
+        });
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel afastado;
     private javax.swing.JButton buscar;

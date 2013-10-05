@@ -5,10 +5,6 @@
 package visão;
 
 import Relatorios.Relatorio;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import net.sf.jasperreports.engine.JRException;
 import visão.Curso.Novo_Curso;
 import visão.Suprimento.Nova_Distribuição;
 import visão.Afastamento.Afastados;
@@ -24,7 +20,6 @@ import visão.Substituicao.Nova_Substituição;
 import visão.Suprimento.Suprimentos;
 import visão.Disciplina.Cadastrar_Disciplina;
 import visão.Disciplina.Inserir_Disciplina_Turma;
-import visão.Turma.Antigo_cadastro;
 import visão.Turma.Cadastro_Turmas;
 import visão.Turma.Turmas_Cadastradas;
 
@@ -108,7 +103,6 @@ public class PáginaInicial extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(0, 204, 51));
         setPreferredSize(new java.awt.Dimension(820, 650));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jToolBar1.setBackground(new java.awt.Color(255, 255, 255));
         jToolBar1.setRollover(true);
@@ -190,8 +184,6 @@ public class PáginaInicial extends javax.swing.JFrame {
             }
         });
         jToolBar1.add(jButton2);
-
-        getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 715, -1));
 
         jMenuBar1.setBackground(new java.awt.Color(0, 0, 51));
         jMenuBar1.setMaximumSize(new java.awt.Dimension(442, 32769));
@@ -421,6 +413,19 @@ public class PáginaInicial extends javax.swing.JFrame {
         jMenuBar1.add(jMenu12);
 
         setJMenuBar(jMenuBar1);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 715, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(353, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

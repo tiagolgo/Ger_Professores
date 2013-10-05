@@ -26,7 +26,6 @@ public class Controller_Servidor {
 
     public Controller_Servidor() {
         dp = new Dao_Professor();
-
     }
 
     public StringBuilder cadastrarServidor(Professora s, Session session) {
@@ -64,7 +63,6 @@ public class Controller_Servidor {
         if (new Dao_Afastamento().isAfastado(s.getId(), sessão)) {
             this.notificacoes.append("O Professor possui registro de Afastamento.\n");
         }
-
         if (excluir) {
             return this.notificacoes;
         }

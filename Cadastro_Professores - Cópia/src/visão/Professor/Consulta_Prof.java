@@ -63,16 +63,15 @@ public class Consulta_Prof extends javax.swing.JDialog {
         rg = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         nome = new javax.swing.JTextField();
-        buscar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        cancelar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         cpf = new javax.swing.JFormattedTextField();
         jLabel2 = new javax.swing.JLabel();
         tipoBusca = new javax.swing.JComboBox();
-        jLabel6 = new javax.swing.JLabel();
-        trechoNome = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
+        buscar = new javax.swing.JButton();
+        cancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -92,16 +91,6 @@ public class Consulta_Prof extends javax.swing.JDialog {
             }
         });
 
-        buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/buscar.png"))); // NOI18N
-        buscar.setText("Buscar");
-        buscar.setToolTipText("Buscar Professor");
-        buscar.setMargin(new java.awt.Insets(2, 2, 2, 14));
-        buscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buscarActionPerformed(evt);
-            }
-        });
-
         jPanel1.setBackground(new java.awt.Color(0, 0, 51));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -113,27 +102,17 @@ public class Consulta_Prof extends javax.swing.JDialog {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(136, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel4)
-                .addContainerGap(137, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel4)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cancelar.png"))); // NOI18N
-        cancelar.setText("Sair");
-        cancelar.setToolTipText("Sair desta tela");
-        cancelar.setMargin(new java.awt.Insets(2, 2, 2, 14));
-        cancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelarActionPerformed(evt);
-            }
-        });
 
         jLabel5.setText("CPF:");
 
@@ -148,6 +127,7 @@ public class Consulta_Prof extends javax.swing.JDialog {
             }
         });
 
+        jLabel2.setForeground(new java.awt.Color(102, 0, 0));
         jLabel2.setText("Buscar por:");
 
         tipoBusca.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "Nome Completo", "RG", "CPF", "Trecho de Nome" }));
@@ -157,87 +137,95 @@ public class Consulta_Prof extends javax.swing.JDialog {
             }
         });
 
-        jLabel6.setText("Trecho de Nome:");
-
-        trechoNome.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                trechoNomeKeyReleased(evt);
+        buscar.setText("Buscar");
+        buscar.setToolTipText("Buscar Professor");
+        buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarActionPerformed(evt);
             }
         });
+
+        cancelar.setText("Sair");
+        cancelar.setToolTipText("Sair desta tela");
+        cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
+                .addComponent(cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buscar)
+                    .addComponent(cancelar))
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tipoBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jLabel1)
-                        .addGap(23, 23, 23)
-                        .addComponent(rg, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel5)
-                        .addGap(4, 4, 4)
-                        .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(111, 111, 111)
-                        .addComponent(buscar)
-                        .addGap(41, 41, 41)
-                        .addComponent(cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
+                        .addGap(3, 3, 3)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nome)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(trechoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(2, 2, 2))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(rg, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(cpf, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE))
+                                    .addComponent(tipoBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 119, Short.MAX_VALUE))))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel2))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
                     .addComponent(tipoBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel5))))
-                .addGap(24, 24, 24)
+                    .addComponent(jLabel5))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addComponent(jLabel3))
                     .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(trechoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -259,14 +247,7 @@ public class Consulta_Prof extends javax.swing.JDialog {
         } else if (this.tipoBusca.getSelectedItem().equals("RG")) {
             prof = busca_PorRg();
             notificação(prof);
-        } else if (this.tipoBusca.getSelectedItem().equals("Trecho de Nome")) {
-            List<Professora> ret = busca_PorTrecho();
-            if (ret.size() > 0) {
-                new Todos_Professores(ret).setVisible(true);
-            }else{
-                JOptionPane.showMessageDialog(null, "Não foram encotrados registros com esses parâmetros.");
-            }
-        }
+        } 
     }//GEN-LAST:event_buscarActionPerformed
 
     private void notificação(Professora p) {
@@ -274,7 +255,7 @@ public class Consulta_Prof extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Professor não encontrado!");
         } else {
             if (consulta) {
-                new Cadastro(p, false).setVisible(true);
+                new Cadastro(p, this.sessao).setVisible(true);
                 this.dispose();
             } else {
                 reflection(p);
@@ -286,28 +267,22 @@ public class Consulta_Prof extends javax.swing.JDialog {
     private void tipoBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoBuscaActionPerformed
         if (this.tipoBusca.getSelectedItem().equals("Nome Completo")) {
             flags(true, false, false, false);
-            limparCampos(this.rg, this.cpf, this.trechoNome);
+            limparCampos(this.rg, this.cpf);
             this.nome.requestFocus();
         } else if (this.tipoBusca.getSelectedItem().equals("CPF")) {
             flags(false, true, false, false);
-            limparCampos(this.nome, this.rg, this.trechoNome);
+            limparCampos(this.nome, this.rg);
             this.cpf.requestFocus();
         } else if (this.tipoBusca.getSelectedItem().equals("RG")) {
             flags(false, false, true, false);
-            limparCampos(this.nome, this.cpf, this.trechoNome);
+            limparCampos(this.nome, this.cpf);
             this.rg.requestFocus();
-        } else if (this.tipoBusca.getSelectedItem().equals("Trecho de Nome")) {
-            flags(false, false, false, true);
-            limparCampos(this.nome, this.cpf, this.rg);
-            this.trechoNome.requestFocus();
-
-        }
+        } 
     }//GEN-LAST:event_tipoBuscaActionPerformed
 
-    private void limparCampos(javax.swing.JTextField campo1, javax.swing.JTextField campo2, javax.swing.JTextField campo3) {
+    private void limparCampos(javax.swing.JTextField campo1, javax.swing.JTextField campo2) {
         campo1.setText(null);
         campo2.setText(null);
-        campo3.setText(null);
     }
 
     private void rgKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_rgKeyReleased
@@ -331,10 +306,6 @@ public class Consulta_Prof extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_nomeKeyReleased
 
-    private void trechoNomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_trechoNomeKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_trechoNomeKeyReleased
-
     private void flags(boolean nome, boolean cpf, boolean rg, boolean trecho) {
         this.nome.setEditable(nome);
         this.nome.setEnabled(nome);
@@ -342,8 +313,6 @@ public class Consulta_Prof extends javax.swing.JDialog {
         this.cpf.setEnabled(cpf);
         this.rg.setEditable(rg);
         this.rg.setEnabled(rg);
-        this.trechoNome.setEditable(trecho);
-        this.trechoNome.setEnabled(trecho);
     }
 
     public Professora busca_PorNome() {
@@ -361,10 +330,7 @@ public class Consulta_Prof extends javax.swing.JDialog {
         return dp.retornaPorCPF(this.cpf.getText().replace('.', '-').replaceAll("-", ""), this.sessao);
     }
 
-    public List<Professora> busca_PorTrecho() {
-        Dao_Professor dp = new Dao_Professor();
-        return (List<Professora>) dp.getPorTrechoNome(this.trechoNome.getText(), this.sessao);
-    }
+
 
     private void reflection(Professora professor) {
         Professora pf = professor;
@@ -391,11 +357,10 @@ public class Consulta_Prof extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField nome;
     private javax.swing.JTextField rg;
     private javax.swing.JComboBox tipoBusca;
-    private javax.swing.JTextField trechoNome;
     // End of variables declaration//GEN-END:variables
 }

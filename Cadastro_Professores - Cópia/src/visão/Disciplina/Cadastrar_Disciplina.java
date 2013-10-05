@@ -5,6 +5,7 @@
 package visão.Disciplina;
 
 import Conexao.Hibernate_Sessao;
+import Controller.Controller_Disciplina;
 import Dao.Dao_Entidades.Dao_Disciplina;
 import Entidades.Disciplinas;
 import java.util.Iterator;
@@ -26,7 +27,6 @@ public class Cadastrar_Disciplina extends javax.swing.JDialog {
 //    public static void main(String[] args) {
 //        new Cadastrar_Disciplina().setVisible(true);
 //    }
-
     public Cadastrar_Disciplina() {
         initComponents();
         super.setModal(true);
@@ -49,7 +49,6 @@ public class Cadastrar_Disciplina extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabela_Grade = new javax.swing.JTable();
-        sair = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -61,6 +60,8 @@ public class Cadastrar_Disciplina extends javax.swing.JDialog {
         jLabel10 = new javax.swing.JLabel();
         comp_Curricular = new javax.swing.JComboBox();
         insere_Disciplina = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        sair = new javax.swing.JButton();
 
         Editar.setText("Editar");
         Editar.addActionListener(new java.awt.event.ActionListener() {
@@ -79,7 +80,6 @@ public class Cadastrar_Disciplina extends javax.swing.JDialog {
         menuPopup.add(Excluir);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 51, 102));
         jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -93,9 +93,9 @@ public class Cadastrar_Disciplina extends javax.swing.JDialog {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(245, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(246, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,8 +104,6 @@ public class Cadastrar_Disciplina extends javax.swing.JDialog {
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 691, -1));
 
         tabela_Grade.setAutoCreateRowSorter(true);
         tabela_Grade.setModel(new javax.swing.table.DefaultTableModel(
@@ -134,20 +132,6 @@ public class Cadastrar_Disciplina extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tabela_Grade);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 145, 671, 242));
-
-        sair.setBackground(new java.awt.Color(255, 153, 0));
-        sair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cancelar.png"))); // NOI18N
-        sair.setText("Sair");
-        sair.setToolTipText("Sair destatela");
-        sair.setMargin(new java.awt.Insets(2, 2, 2, 14));
-        sair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sairActionPerformed(evt);
-            }
-        });
-        getContentPane().add(sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(303, 407, 84, -1));
-
         jPanel2.setBackground(new java.awt.Color(204, 255, 204));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -167,9 +151,9 @@ public class Cadastrar_Disciplina extends javax.swing.JDialog {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 267, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addContainerGap(271, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,29 +164,19 @@ public class Cadastrar_Disciplina extends javax.swing.JDialog {
             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 93, 671, -1));
-
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
         jLabel7.setText("Obs: Selecione a grade e clique com botão direito do mouse para Editá-la ou Excluí-la.");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 124, -1, -1));
 
         jLabel8.setText("Código*:");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 64, -1, -1));
-        getContentPane().add(código, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 61, 75, -1));
 
         jLabel9.setText("Disciplina*:");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 64, -1, -1));
-        getContentPane().add(disciplina, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 61, 204, -1));
 
         jLabel10.setText("Comp. Curricular*:");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(429, 64, -1, -1));
 
         comp_Curricular.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "BNC", "PD" }));
-        getContentPane().add(comp_Curricular, new org.netbeans.lib.awtextra.AbsoluteConstraints(523, 61, -1, -1));
 
         insere_Disciplina.setBackground(new java.awt.Color(0, 51, 255));
         insere_Disciplina.setForeground(new java.awt.Color(255, 255, 255));
-        insere_Disciplina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/add.png"))); // NOI18N
         insere_Disciplina.setText("Salvar");
         insere_Disciplina.setToolTipText("Slavar a Disciplina");
         insere_Disciplina.setMargin(new java.awt.Insets(2, 2, 2, 2));
@@ -216,7 +190,90 @@ public class Cadastrar_Disciplina extends javax.swing.JDialog {
                 insere_DisciplinaKeyReleased(evt);
             }
         });
-        getContentPane().add(insere_Disciplina, new org.netbeans.lib.awtextra.AbsoluteConstraints(606, 56, 75, -1));
+
+        sair.setBackground(new java.awt.Color(255, 153, 0));
+        sair.setText("Sair");
+        sair.setToolTipText("Sair destatela");
+        sair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sairActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap(271, Short.MAX_VALUE)
+                .addComponent(sair, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(271, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(sair, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel7)
+                        .addGap(0, 217, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(código, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(disciplina, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(comp_Curricular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(insere_Disciplina, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(disciplina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel10)
+                    .addComponent(comp_Curricular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(insere_Disciplina)
+                    .addComponent(código, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel7)
+                .addGap(1, 1, 1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -264,7 +321,7 @@ public class Cadastrar_Disciplina extends javax.swing.JDialog {
             removeLinhasTabela();
             carregarTabela();
             limpaCampos();
-            this.código.requestFocusInWindow();
+            this.código.requestFocus();
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Erro ao gravar Disciplina.");
             Logger.getLogger(Cadastrar_Disciplina.class.getName()).log(Level.SEVERE, null, ex);
@@ -272,7 +329,7 @@ public class Cadastrar_Disciplina extends javax.swing.JDialog {
     }
 
     private void carregarTabela() {
-        List<Disciplinas> list = new Dao_Disciplina().list();
+        List<Disciplinas> list = new Dao_Disciplina().getModelos();
         if (list != null) {
             DefaultTableModel model;
             for (Iterator<Disciplinas> it = list.iterator(); it.hasNext();) {
@@ -330,17 +387,28 @@ public class Cadastrar_Disciplina extends javax.swing.JDialog {
         if (retorno != null) {
             this.novaDisc = retorno;
             this.atualizar = true;
-            JOptionPane.showMessageDialog(null, "disciplina " + retorno.getNome());
             DefaultTableModel d = (DefaultTableModel) this.tabela_Grade.getModel();
             d.removeRow(linha);
         }
     }//GEN-LAST:event_EditarActionPerformed
 
     private void ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExcluirActionPerformed
-        int linha = this.tabela_Grade.getSelectedRow();
-
-        DefaultTableModel d = (DefaultTableModel) this.tabela_Grade.getModel();
-        d.removeRow(linha);
+//        int linha = this.tabela_Grade.getSelectedRow();
+//
+//        DefaultTableModel d = (DefaultTableModel) this.tabela_Grade.getModel();
+//        Dao_Disciplina dd = new Dao_Disciplina();
+//        int id = Integer.parseInt(this.tabela_Grade.getValueAt(linha, 0).toString());
+//        boolean ret = dd.exclusaoDisciplina(id);
+//        if (ret) {
+//            try {
+//                dd.deletePorId(id);
+//                JOptionPane.showMessageDialog(null, "Disciplina excluída com sucesso.");
+//                d.removeRow(linha);
+//            } catch (Exception ex) {
+//                JOptionPane.showMessageDialog(null, "Erro ao tentar exclur Disciplina.");
+//                Logger.getLogger(Cadastrar_Disciplina.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
     }//GEN-LAST:event_ExcluirActionPerformed
 
     private void limpaCampos() {
@@ -381,6 +449,7 @@ public class Cadastrar_Disciplina extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu menuPopup;
     private javax.swing.JButton sair;
