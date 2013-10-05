@@ -5,6 +5,7 @@
 package Controller;
 
 import Dao.Dao_Entidades.Dao_Afastamento;
+import Dao.Dao_Entidades.Dao_Disciplina;
 import Dao.Dao_Entidades.Dao_Professor;
 import Dao.Dao_Entidades.Dao_Substituicao;
 import Entidades.Afastament;
@@ -17,6 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 /**
  *
@@ -26,21 +28,8 @@ public class Controller_Afastamento {
 
     private ArrayList<String> notificacao = new ArrayList();
 
-    public ArrayList<String> delete(Afastament a, Session sessao) {
-        //chama método para reatribuir as disciplinas do afastado
 
-        //chamar método para excluir 
-
-        if (verificaSeSubstituido(a)) {
-            return null;
-        } else {
-            Professora professor = reatribuirDisciplinas(a);
-            persistirAfastado(professor, sessao);
-            return this.notificacao;
-        }
-    }
-
-    private Professora reatribuirDisciplinas(Afastament a) {
+    public Professora reatribuirDisciplinas(Afastament a) {
         List<Disciplinas> disciplinas = a.getDisciplinas();
         Professora afastado = a.getAfastado();
 
@@ -57,7 +46,9 @@ public class Controller_Afastamento {
     private boolean persistirAfastado(Professora afastado, Session sessao) {
         Dao_Professor dp = new Dao_Professor();
         try {
+            Transaction tr = sessao.beginTransaction();
             dp.persist(afastado, sessao);
+            tr.commit();
             return true;
         } catch (Exception ex) {
             Logger.getLogger(Controller_Afastamento.class.getName()).log(Level.SEVERE, null, ex);
@@ -66,10 +57,10 @@ public class Controller_Afastamento {
         }
     }
 
-    private boolean verificaSeSubstituido(Afastament a) {
-        Dao_Substituicao ds = new Dao_Substituicao();
-        Substituica s = ds.getSubstituicaoEqualsId(a.getId());
-        if (s != null) {
+    private boolean verificaSeSubstituido(Afastament a, Session sessao) {
+        Dao_Disciplina ds = new Dao_Disciplina();
+        boolean s = ds.getSupridasAfastamento(a.getId(), sessao);
+        if (s) {
             this.notificacao.add("O Afastamento não pode ser excluído.\n Há uma Substituição do mesmo.\n Realize o Cancelamento");
             return false;
         }

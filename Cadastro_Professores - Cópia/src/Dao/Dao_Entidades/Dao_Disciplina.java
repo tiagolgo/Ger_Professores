@@ -100,6 +100,13 @@ public class Dao_Disciplina extends Dao_Generico<Disciplinas> {
         List<Disciplinas> list = sessao.createQuery("FROM Disciplinas WHERE suprida=false and id_Turma=:i").setParameter("i", id).list();
         return list;
     }
+    public boolean getSupridasAfastamento(int id, Session sessao){
+        List<Disciplinas> list = sessao.createQuery("FROM Disciplinas WHERE suprida=false and id_Afastameto=:i").setParameter("i", id).list();
+        if (list.size()>0) {
+            return true;
+        }
+        return false;
+    }
     
     
 }

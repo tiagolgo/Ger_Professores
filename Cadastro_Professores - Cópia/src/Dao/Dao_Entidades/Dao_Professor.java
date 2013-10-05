@@ -159,4 +159,11 @@ public class Dao_Professor extends Dao_Generico<Professora> {
         }
         return 0;
     }
+    
+    public List<Professora> getPorTrechoNome(String trecho, Session sessao){
+        //        List list = sessao.createQuery('FROM Professora where nome like "%'+trecho+'"').list();
+        List list = sessao.createCriteria(clazz).add(Restrictions.like("nome","%"+trecho+"%")).list();
+//        sessao.beginTransaction().commit();
+        return list;
+    }
 }

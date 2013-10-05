@@ -31,7 +31,7 @@ public class Dao_Generico<T> implements Dao<T> {
         Transaction tr = sessao.beginTransaction();
         sessao.saveOrUpdate(o);
         tr.commit();
-        sessao.close();
+//        sessao.close();
     }
 
     @Override
@@ -45,7 +45,7 @@ public class Dao_Generico<T> implements Dao<T> {
         Session sessao = Hibernate_Sessao.getInstance().retornaSession();
         sessao.delete(o);
         sessao.beginTransaction().commit();
-        sessao.close();
+//        sessao.close();
     }
 
     @Override
@@ -60,7 +60,7 @@ public class Dao_Generico<T> implements Dao<T> {
         Session sessao = Hibernate_Sessao.getInstance().retornaSession();
         T res = (T) sessao.createCriteria(clazz).add(Restrictions.eq("id", id)).uniqueResult();
         sessao.beginTransaction().commit();
-        sessao.close();
+//        sessao.close();
         return res;
     }
 
@@ -70,7 +70,7 @@ public class Dao_Generico<T> implements Dao<T> {
         Session sessao = Hibernate_Sessao.getInstance().retornaSession();
         res = (List<T>) sessao.createCriteria(clazz).list();
         sessao.beginTransaction().commit();
-        sessao.close();
+//        sessao.close();
         return res;
     }
     public List<T> list(Session sessao) {

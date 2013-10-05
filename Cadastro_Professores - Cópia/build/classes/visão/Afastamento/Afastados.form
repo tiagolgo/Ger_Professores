@@ -20,8 +20,42 @@
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
   </AuxValues>
 
-  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
-    <Property name="useNullLayout" type="boolean" value="false"/>
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="788" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="198" pref="198" max="-2" attributes="0"/>
+              <Component id="Sair" min="-2" pref="84" max="-2" attributes="0"/>
+              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+              <Component id="detalhes_Afastamento" min="-2" pref="85" max="-2" attributes="0"/>
+              <EmptySpace min="27" pref="27" max="-2" attributes="0"/>
+              <Component id="alterarAfastamento" min="-2" pref="88" max="-2" attributes="0"/>
+              <EmptySpace min="14" pref="14" max="-2" attributes="0"/>
+              <Component id="excluirAfastamento" min="-2" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="370" max="-2" attributes="0"/>
+              <EmptySpace min="21" pref="21" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="Sair" min="-2" pref="42" max="-2" attributes="0"/>
+                  <Component id="detalhes_Afastamento" min="-2" pref="42" max="-2" attributes="0"/>
+                  <Component id="alterarAfastamento" min="-2" pref="42" max="-2" attributes="0"/>
+                  <Component id="excluirAfastamento" min="-2" pref="42" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+      </Group>
+    </DimensionLayout>
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JPanel" name="jPanel1">
@@ -30,11 +64,6 @@
           <Color blue="66" green="33" red="0" type="rgb"/>
         </Property>
       </Properties>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="0" y="0" width="808" height="-1"/>
-        </Constraint>
-      </Constraints>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -74,11 +103,6 @@
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="10" y="57" width="788" height="370"/>
-        </Constraint>
-      </Constraints>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
@@ -115,11 +139,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SairActionPerformed"/>
       </Events>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="198" y="448" width="84" height="42"/>
-        </Constraint>
-      </Constraints>
     </Component>
     <Component class="javax.swing.JButton" name="alterarAfastamento">
       <Properties>
@@ -135,11 +154,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="alterarAfastamentoActionPerformed"/>
       </Events>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="412" y="448" width="88" height="42"/>
-        </Constraint>
-      </Constraints>
     </Component>
     <Component class="javax.swing.JButton" name="excluirAfastamento">
       <Properties>
@@ -152,11 +166,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="excluirAfastamentoActionPerformed"/>
       </Events>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="514" y="448" width="-1" height="42"/>
-        </Constraint>
-      </Constraints>
     </Component>
     <Component class="javax.swing.JButton" name="detalhes_Afastamento">
       <Properties>
@@ -166,11 +175,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="detalhes_AfastamentoActionPerformed"/>
       </Events>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="300" y="448" width="85" height="42"/>
-        </Constraint>
-      </Constraints>
     </Component>
   </SubComponents>
 </Form>

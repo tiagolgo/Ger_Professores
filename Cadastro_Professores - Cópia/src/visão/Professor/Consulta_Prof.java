@@ -9,6 +9,7 @@ import Dao.Dao_Entidades.Dao_Professor;
 import Entidades.Professora;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -50,7 +51,7 @@ public class Consulta_Prof extends javax.swing.JDialog {
         super.setModal(true);
         this.setTitle("Consulta de Professor");
         this.setLocationRelativeTo(null);
-        flags(false, false, false);
+        flags(false, false, false, false);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
@@ -70,29 +71,26 @@ public class Consulta_Prof extends javax.swing.JDialog {
         cpf = new javax.swing.JFormattedTextField();
         jLabel2 = new javax.swing.JLabel();
         tipoBusca = new javax.swing.JComboBox();
+        jLabel6 = new javax.swing.JLabel();
+        trechoNome = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("RG:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 136, -1, -1));
 
         rg.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 rgKeyReleased(evt);
             }
         });
-        getContentPane().add(rg, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 133, 136, -1));
 
-        jLabel3.setText("Nome:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 186, -1, -1));
+        jLabel3.setText("Nome Completo:");
 
         nome.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 nomeKeyReleased(evt);
             }
         });
-        getContentPane().add(nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 183, 323, -1));
 
         buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/buscar.png"))); // NOI18N
         buscar.setText("Buscar");
@@ -103,7 +101,6 @@ public class Consulta_Prof extends javax.swing.JDialog {
                 buscarActionPerformed(evt);
             }
         });
-        getContentPane().add(buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 257, -1, 33));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 51));
 
@@ -128,8 +125,6 @@ public class Consulta_Prof extends javax.swing.JDialog {
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 441, -1));
-
         cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cancelar.png"))); // NOI18N
         cancelar.setText("Sair");
         cancelar.setToolTipText("Sair desta tela");
@@ -139,10 +134,8 @@ public class Consulta_Prof extends javax.swing.JDialog {
                 cancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(239, 257, 89, -1));
 
         jLabel5.setText("CPF:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 136, -1, -1));
 
         try {
             cpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
@@ -154,18 +147,98 @@ public class Consulta_Prof extends javax.swing.JDialog {
                 cpfKeyReleased(evt);
             }
         });
-        getContentPane().add(cpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(253, 133, 142, -1));
 
         jLabel2.setText("Buscar por:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 77, -1, -1));
 
-        tipoBusca.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "Nome", "RG", "CPF" }));
+        tipoBusca.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "Nome Completo", "RG", "CPF", "Trecho de Nome" }));
         tipoBusca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tipoBuscaActionPerformed(evt);
             }
         });
-        getContentPane().add(tipoBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 74, 92, -1));
+
+        jLabel6.setText("Trecho de Nome:");
+
+        trechoNome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                trechoNomeKeyReleased(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tipoBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel1)
+                        .addGap(23, 23, 23)
+                        .addComponent(rg, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel5)
+                        .addGap(4, 4, 4)
+                        .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(111, 111, 111)
+                        .addComponent(buscar)
+                        .addGap(41, 41, 41)
+                        .addComponent(cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(trechoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(2, 2, 2))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel2))
+                    .addComponent(tipoBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(rg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel5))))
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel3))
+                    .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(trechoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -177,45 +250,64 @@ public class Consulta_Prof extends javax.swing.JDialog {
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
         Professora prof = null;
 
-        if (this.tipoBusca.getSelectedItem().equals("Nome")) {     
+        if (this.tipoBusca.getSelectedItem().equals("Nome Completo")) {
             prof = busca_PorNome();
+            notificação(prof);
         } else if (this.tipoBusca.getSelectedItem().equals("CPF")) {
             prof = busca_PorCpf();
+            notificação(prof);
         } else if (this.tipoBusca.getSelectedItem().equals("RG")) {
             prof = busca_PorRg();
-        }
-
-        if (prof == null) {
-            JOptionPane.showMessageDialog(null, "Professor não encontrado!");
-        } else {
-            if (consulta) {
-                new Cadastro(prof, false).setVisible(true);
-                this.dispose();
-            } else {
-                reflection(prof);
+            notificação(prof);
+        } else if (this.tipoBusca.getSelectedItem().equals("Trecho de Nome")) {
+            List<Professora> ret = busca_PorTrecho();
+            if (ret.size() > 0) {
+                new Todos_Professores(ret).setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(null, "Não foram encotrados registros com esses parâmetros.");
             }
         }
     }//GEN-LAST:event_buscarActionPerformed
 
+    private void notificação(Professora p) {
+        if (p == null) {
+            JOptionPane.showMessageDialog(null, "Professor não encontrado!");
+        } else {
+            if (consulta) {
+                new Cadastro(p, false).setVisible(true);
+                this.dispose();
+            } else {
+                reflection(p);
+            }
+        }
+
+    }
+
     private void tipoBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoBuscaActionPerformed
-        if (this.tipoBusca.getSelectedItem().equals("Nome")) {
-            flags(true, false, false);
-            limparCampos(this.rg, this.cpf);
+        if (this.tipoBusca.getSelectedItem().equals("Nome Completo")) {
+            flags(true, false, false, false);
+            limparCampos(this.rg, this.cpf, this.trechoNome);
             this.nome.requestFocus();
         } else if (this.tipoBusca.getSelectedItem().equals("CPF")) {
-            flags(false, true, false);
-            limparCampos(this.nome, this.rg);
+            flags(false, true, false, false);
+            limparCampos(this.nome, this.rg, this.trechoNome);
             this.cpf.requestFocus();
         } else if (this.tipoBusca.getSelectedItem().equals("RG")) {
-            flags(false, false, true);
-            limparCampos(this.nome, this.cpf);
+            flags(false, false, true, false);
+            limparCampos(this.nome, this.cpf, this.trechoNome);
             this.rg.requestFocus();
+        } else if (this.tipoBusca.getSelectedItem().equals("Trecho de Nome")) {
+            flags(false, false, false, true);
+            limparCampos(this.nome, this.cpf, this.rg);
+            this.trechoNome.requestFocus();
+
         }
     }//GEN-LAST:event_tipoBuscaActionPerformed
 
-    private void limparCampos(javax.swing.JTextField campo1, javax.swing.JTextField campo2) {
+    private void limparCampos(javax.swing.JTextField campo1, javax.swing.JTextField campo2, javax.swing.JTextField campo3) {
         campo1.setText(null);
         campo2.setText(null);
+        campo3.setText(null);
     }
 
     private void rgKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_rgKeyReleased
@@ -239,13 +331,19 @@ public class Consulta_Prof extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_nomeKeyReleased
 
-    private void flags(boolean nome, boolean cpf, boolean rg) {
+    private void trechoNomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_trechoNomeKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_trechoNomeKeyReleased
+
+    private void flags(boolean nome, boolean cpf, boolean rg, boolean trecho) {
         this.nome.setEditable(nome);
         this.nome.setEnabled(nome);
         this.cpf.setEditable(cpf);
         this.cpf.setEnabled(cpf);
         this.rg.setEditable(rg);
         this.rg.setEnabled(rg);
+        this.trechoNome.setEditable(trecho);
+        this.trechoNome.setEnabled(trecho);
     }
 
     public Professora busca_PorNome() {
@@ -263,6 +361,11 @@ public class Consulta_Prof extends javax.swing.JDialog {
         return dp.retornaPorCPF(this.cpf.getText().replace('.', '-').replaceAll("-", ""), this.sessao);
     }
 
+    public List<Professora> busca_PorTrecho() {
+        Dao_Professor dp = new Dao_Professor();
+        return (List<Professora>) dp.getPorTrechoNome(this.trechoNome.getText(), this.sessao);
+    }
+
     private void reflection(Professora professor) {
         Professora pf = professor;
 
@@ -276,11 +379,9 @@ public class Consulta_Prof extends javax.swing.JDialog {
             System.out.println("erro");
         }
     }
-    
 //    public static void main(String[] args) {
 //        new Consulta_Prof().setVisible(true);
 //    }
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buscar;
     private javax.swing.JButton cancelar;
@@ -290,9 +391,11 @@ public class Consulta_Prof extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nome;
     private javax.swing.JTextField rg;
     private javax.swing.JComboBox tipoBusca;
+    private javax.swing.JTextField trechoNome;
     // End of variables declaration//GEN-END:variables
 }

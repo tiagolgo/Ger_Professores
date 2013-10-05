@@ -33,6 +33,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import visão.Curso.Novo_Curso;
 import visão.Disciplina.Cadastrar_Disciplina;
+import visão.Disciplina.Inserir_Disciplina_Turma;
 import visão.Turma.Antigo_cadastro;
 
 /**
@@ -67,7 +68,6 @@ public class Nova_Distribuição extends javax.swing.JDialog {
 //    public static void main(String[] args) {
 //        new Nova_Distribuição().setVisible(true);
 //    }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -435,13 +435,15 @@ public class Nova_Distribuição extends javax.swing.JDialog {
             excluiLinhas();
 
             this.disciplinas = dd.getNaoSupridasTurma(this.turmaSelecionada.getId(), this.sessão);
-            if (this.disciplinas != null) {
-                JOptionPane.showMessageDialog(null, "Nao vazio "+this.disciplinas.size());
+            if (this.disciplinas.size() > 0) {
+                JOptionPane.showMessageDialog(null, "Nao vazio " + this.disciplinas.size());
                 for (Iterator<Disciplinas> it = this.disciplinas.iterator(); it.hasNext();) {
                     Disciplinas disci = it.next();
                     insereDisciplinaTabela(disci);
                 }
 
+            } else {
+                JOptionPane.showMessageDialog(null, "A Turma não possui Disciplinas não supridas.\nDeseja inserir?");
             }
         }
     }//GEN-LAST:event_selectTurmaActionPerformed
@@ -536,7 +538,6 @@ public class Nova_Distribuição extends javax.swing.JDialog {
 //        columnModel.getColumn(5).setMinWidth(70);
 //        columnModel.getColumn(6).setMinWidth(80);
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelar;
     private javax.swing.JFormattedTextField data_Início;

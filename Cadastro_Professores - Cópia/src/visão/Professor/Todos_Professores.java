@@ -32,6 +32,14 @@ public class Todos_Professores extends javax.swing.JDialog {
         this.setTitle("Professores Cadastrados");
         this.setLocationRelativeTo(null);
     }
+    public Todos_Professores(List<Professora> p) {
+        initComponents();
+        super.setModal(true);
+        this.professores=p;
+        this.setTitle("Professores Cadastrados");
+        this.setLocationRelativeTo(null);
+        preencheTabela();
+    }
 
 //    public static void main(String[] args) {
 //        new Todos_Professores().setVisible(true);
@@ -198,7 +206,7 @@ public class Todos_Professores extends javax.swing.JDialog {
 
     private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
         // TODO add your handling code here:
-        this.sessão.close();
+//        this.sessão.close();
         this.dispose();
     }//GEN-LAST:event_sairActionPerformed
 

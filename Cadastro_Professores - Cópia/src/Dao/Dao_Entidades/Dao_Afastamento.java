@@ -61,15 +61,17 @@ public class Dao_Afastamento extends Dao_Generico<Afastament> {
         }
     }
 
-    public List<Afastament> getAfastaments(Session sessao) {
+    public boolean getAfastaments(Session sessao, int id) {
         try {
-            List<Afastament> list = sessao.createQuery("from Disciplinas where id_Afastameto in (select id from Afastament) and suprida=false;").list();
+            List<Afastament> list = sessao.createQuery("from Disciplinas where id_Afastameto=:i and suprida=true").setParameter("i", id).list();
 //            sessao.beginTransaction().commit();
-            return list;
+            if (list.size()>0) {
+                return false;
+            }
 
         } catch (Exception e) {
         }
-        return null;
+        return false;
 
     }
 }

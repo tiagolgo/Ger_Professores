@@ -25,11 +25,11 @@ public class Detalhes_Disciplinas extends javax.swing.JDialog {
     public Detalhes_Disciplinas(List<Disciplinas> d, Session sessao) {
         initComponents();
         super.setModal(true);
-        carregaTabela(d);
         this.sessão = sessao;
         this.setTitle("Detalhes das Disciplinas");
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        carregaTabela(d);
 
     }
 

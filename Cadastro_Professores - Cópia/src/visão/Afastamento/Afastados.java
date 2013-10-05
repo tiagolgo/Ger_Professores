@@ -7,6 +7,7 @@ package visão.Afastamento;
 import Conexao.Hibernate_Sessao;
 import Controller.Controller_Afastamento;
 import Dao.Dao_Entidades.Dao_Afastamento;
+import Dao.Dao_Entidades.Dao_Disciplina;
 import Entidades.Afastament;
 import Entidades.Disciplinas;
 import java.util.ArrayList;
@@ -37,17 +38,17 @@ public class Afastados extends javax.swing.JDialog {
         configuraTabela();
         this.setLocationRelativeTo(null);
         carregarAfastados();
-
     }
 //    public static void main(String[] args) {
 //        new Afastados().setVisible(true);
 //    }
+
     private void carregarAfastados() {
         DefaultTableModel model = (DefaultTableModel) this.tabelaAfastados.getModel();
 
         Dao_Afastamento da = new Dao_Afastamento();
         try {
-            this.afastamentos = da.list();
+            this.afastamentos = da.list(this.sessão);
 
             if (afastamentos != null) {
                 for (Afastament a : afastamentos) {
@@ -91,7 +92,6 @@ public class Afastados extends javax.swing.JDialog {
         detalhes_Afastamento = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 51, 102));
 
@@ -116,8 +116,6 @@ public class Afastados extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 808, -1));
-
         tabelaAfastados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -129,8 +127,6 @@ public class Afastados extends javax.swing.JDialog {
         tabelaAfastados.setGridColor(new java.awt.Color(0, 0, 0));
         jScrollPane1.setViewportView(tabelaAfastados);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 57, 788, 370));
-
         Sair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cancelar.png"))); // NOI18N
         Sair.setText("Sair");
         Sair.setToolTipText("Sair desta tela");
@@ -140,7 +136,6 @@ public class Afastados extends javax.swing.JDialog {
                 SairActionPerformed(evt);
             }
         });
-        getContentPane().add(Sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(198, 448, 84, 42));
 
         alterarAfastamento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/disciplina.png"))); // NOI18N
         alterarAfastamento.setText("Alterar");
@@ -151,7 +146,6 @@ public class Afastados extends javax.swing.JDialog {
                 alterarAfastamentoActionPerformed(evt);
             }
         });
-        getContentPane().add(alterarAfastamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(412, 448, 88, 42));
 
         excluirAfastamento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/lixeira.png"))); // NOI18N
         excluirAfastamento.setText("Excluir");
@@ -161,7 +155,6 @@ public class Afastados extends javax.swing.JDialog {
                 excluirAfastamentoActionPerformed(evt);
             }
         });
-        getContentPane().add(excluirAfastamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(514, 448, -1, 42));
 
         detalhes_Afastamento.setText("Detalhes");
         detalhes_Afastamento.setToolTipText("Detalhes dos Professores");
@@ -170,7 +163,38 @@ public class Afastados extends javax.swing.JDialog {
                 detalhes_AfastamentoActionPerformed(evt);
             }
         });
-        getContentPane().add(detalhes_Afastamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 448, 85, 42));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 788, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(198, 198, 198)
+                .addComponent(Sair, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(detalhes_Afastamento, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(alterarAfastamento, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
+                .addComponent(excluirAfastamento))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Sair, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(detalhes_Afastamento, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(alterarAfastamento, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(excluirAfastamento, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -210,26 +234,26 @@ public class Afastados extends javax.swing.JDialog {
         Afastament afast = localizaAfastamento();
         if (afast != null) {
             Controller_Afastamento ca = new Controller_Afastamento();
-            ArrayList<String> res = ca.delete(afast, sessão);
-            
-            if (res!=null) {
-                JOptionPane.showMessageDialog(null, "Afastamento removido com sucesso!");
-            }else{
-                JOptionPane.showMessageDialog(null, res);
-                
-//                if (reverteAfastamento(afast)) {
-//                    try {
-//                        Transaction tr = this.sessão.beginTransaction();
-//                        da.delete(afast);
-//                        tr.commit();
-//                        excluiLinha();
-//                        JOptionPane.showMessageDialog(null, "Afastamento Excluído");
-//                    } catch (Exception ex) {
-//                        this.sessão.beginTransaction().rollback();
-//                        JOptionPane.showMessageDialog(null, "Não foi possível excluir o Afastemento!");
-//                        Logger.getLogger(Afastados.class.getName()).log(Level.SEVERE, null, ex);
-//                    }
-//                }
+            Dao_Disciplina dd = new Dao_Disciplina();
+            boolean s = dd.getSupridasAfastamento(afast.getId(), sessão);
+
+            if (s) {
+                JOptionPane.showMessageDialog(null, "Afastamento não pode ser removido!");
+            } else {
+                for (Disciplinas disciplina : afast.getDisciplinas()) {
+                    disciplina.setSuprida(true);
+                    afast.getAfastado().setDisciplina(disciplina);
+                }
+                try {
+                    Transaction tr = this.sessão.beginTransaction();
+                    da.delete(afast, this.sessão);
+                    tr.commit();
+                    JOptionPane.showMessageDialog(null, "Afastamento Excluído");
+                    excluiLinha();
+                } catch (Exception ex) {
+                    this.sessão.beginTransaction().rollback();
+                    JOptionPane.showMessageDialog(null, "Erro ao tentar remover afastamento.");
+                }
             }
         }
     }//GEN-LAST:event_excluirAfastamentoActionPerformed
@@ -239,8 +263,6 @@ public class Afastados extends javax.swing.JDialog {
         model.removeRow(this.tabelaAfastados.getSelectedRow());
     }
 
-
-  
     private void alterarAfastamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarAfastamentoActionPerformed
         Afastament a = localizaAfastamento();
         if (a != null) {
