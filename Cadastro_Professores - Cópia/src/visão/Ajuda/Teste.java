@@ -86,7 +86,7 @@ public class Teste {
         //        Dao_Turma dt = new Dao_Turma();
         //        Session sessao = Hibernate_Sessao.getInstance().retornaSession();
         //        Dao_Professor dp = new Dao_Professor();
-        boolean verDuplicidade = new Dao_Curso().verDuplicidade("ensino medio", "654", "matutino");
+        boolean verDuplicidade = new Dao_Curso().verDuplicidade("ensino fundamental", "4000", "matutino");
         System.out.println("já há cursos "+verDuplicidade);
 
 //        try {

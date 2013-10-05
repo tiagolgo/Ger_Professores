@@ -205,7 +205,7 @@ public class Novo_Curso extends javax.swing.JDialog {
         if (ver.length() == 0) {
             Dao_Curso dc = new Dao_Curso();
 
-            boolean verDuplicidade = dc.verDuplicidade(curso.getCodigo().toString(), curso.getNome().toString(), curso.getTurno().toString());
+            boolean verDuplicidade = dc.verDuplicidade(curso.getCodigo(), curso.getNome(), curso.getTurno());
 
             if (verDuplicidade) {
 
@@ -221,7 +221,7 @@ public class Novo_Curso extends javax.swing.JDialog {
 //                this.sessão.beginTransaction().rollback();
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "Já há um Curso cadastrado!");
+                JOptionPane.showMessageDialog(null, "Já há um Curso cadastrado com mesmo código ou nome neste turno!");
             }
         } else {
             JOptionPane.showMessageDialog(null, ver);

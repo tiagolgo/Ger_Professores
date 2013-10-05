@@ -374,7 +374,7 @@ public class Cadastro_Turmas extends javax.swing.JDialog {
         Dao_Turma dt = new Dao_Turma();
         boolean retorno = dt.verDependencias(idTurmaTabela);
 
-        if (retorno) {
+        if (!retorno) {
             //se existir disciplina suprida na turma, impedir exclusão
             JOptionPane.showMessageDialog(null, "A Turma não pode ser excluída, pois a mesma possui Disciplinas supridas");
         } else {

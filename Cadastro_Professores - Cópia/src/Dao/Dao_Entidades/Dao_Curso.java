@@ -8,6 +8,7 @@ import Conexao.Hibernate_Sessao;
 import Dao.Dao_Generico;
 import Entidades.Cursos;
 import java.util.List;
+import javax.swing.JOptionPane;
 import org.hibernate.Session;
 
 /**
@@ -20,9 +21,9 @@ public class Dao_Curso extends Dao_Generico<Cursos> {
         clazz = Cursos.class;
     }
 
-    public boolean verDuplicidade(String nome, String codigo, String turno) {
+    public boolean verDuplicidade(String codigo, String nome, String turno) {
         Session sessao = Hibernate_Sessao.getInstance().retornaSession();
-        List res = sessao.createQuery("FROM Cursos WHERE (codigo=:c and turno=:t) or (nome=:n and turno=:t)").setParameter("c", codigo).setParameter("n", nome).setParameter("t", turno).list();
+        List res = sessao.createQuery("FROM Cursos WHERE codigo=:c and turno=:t or nome=:n and turno=:t").setParameter("c", codigo).setParameter("n", nome).setParameter("t", turno).list();
         if (res.size()>0) {
             return false;
         }

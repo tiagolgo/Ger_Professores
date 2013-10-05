@@ -34,7 +34,6 @@ public class Inserir_Disciplina_Turma extends javax.swing.JDialog {
 //    public static void main(String[] args) {
 //        new Inserir_Disciplina_Turma().setVisible(true);
 //    }
-
     public Inserir_Disciplina_Turma() {
         initComponents();
         super.setModal(true);
@@ -313,6 +312,7 @@ public class Inserir_Disciplina_Turma extends javax.swing.JDialog {
                 i++;
             }
         }
+        flag();
     }
 
     private void carregarComboDisciplinas() {
@@ -447,7 +447,7 @@ public class Inserir_Disciplina_Turma extends javax.swing.JDialog {
 
         Cursos c = (Cursos) this.cursos.get(this.curso.getSelectedIndex());
         if (this.curso.getSelectedIndex() > 0) {
-
+            this.turma.setEnabled(true);
             List<Turmas> turm = new Dao_Turma().getTurmasIdCurso(c.getId());
             if (turm.isEmpty()) {
                 int op = JOptionPane.showConfirmDialog(null, "Não há Turmas para este curso!\nDeseja Cadastrar?");
@@ -473,6 +473,7 @@ public class Inserir_Disciplina_Turma extends javax.swing.JDialog {
         // TODO add your handling code here:
         Dao_Disciplina dd = new Dao_Disciplina();
         if (this.turma.getSelectedIndex() > 0) {
+            this.comboDisciplinas.setEnabled(true);
             this.turmaSelecionada = (Turmas) this.turmas.get(this.turma.getSelectedIndex());
             removeLinhasTabela();
 
@@ -489,8 +490,8 @@ public class Inserir_Disciplina_Turma extends javax.swing.JDialog {
 
     private void comboDisciplinasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboDisciplinasActionPerformed
         // TODO add your handling code here:
-        int s = this.comboDisciplinas.getSelectedIndex();
-        if (s != 0) {
+        if (this.comboDisciplinas.getSelectedIndex() > 0) {
+            this.cargaHoraria.setEnabled(true);
             Disciplinas d = (Disciplinas) this.hashDisciplinas.get(this.comboDisciplinas.getSelectedIndex());
             this.disciplinaSelecionada = new Disciplinas();
             this.disciplinaSelecionada.setCodigo(d.getCodigo());
@@ -504,6 +505,7 @@ public class Inserir_Disciplina_Turma extends javax.swing.JDialog {
     private void cargaHorariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargaHorariaActionPerformed
         // TODO add your handling code here:
         if (this.cargaHoraria.getSelectedIndex() > 0) {
+            this.insere_Disciplina.setEnabled(true);
             this.disciplinaSelecionada.setCargaHoraria(Integer.parseInt(this.cargaHoraria.getSelectedItem().toString()));
         }
     }//GEN-LAST:event_cargaHorariaActionPerformed
@@ -551,6 +553,14 @@ public class Inserir_Disciplina_Turma extends javax.swing.JDialog {
         }
 
         return not;
+    }
+
+    private void flag() {
+        this.turma.setEnabled(false);
+        this.comboDisciplinas.setEnabled(false);
+        this.turma.setEnabled(false);
+        this.cargaHoraria.setEnabled(false);
+        this.insere_Disciplina.setEnabled(false);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem Editar;

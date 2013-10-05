@@ -29,7 +29,7 @@ public class Dao_Turma extends Dao_Generico<Turmas> {
 
     public boolean verDuplicidade(Turmas d) {
         Session sessao = Hibernate_Sessao.getInstance().retornaSession();
-        List<Turmas> res = (List<Turmas>) sessao.createQuery("FROM Turmas WHERE seriacao=:c and serie=:n and id_Curso=(SELECT id FROM Cursos where id=:curso)").setParameter("c", d.getSeriacao()).setParameter("n", d.getSerie()).setParameter("curso", d.getCurso().getId()).list();
+        List res = sessao.createQuery("FROM Turmas WHERE seriacao=:c and serie=:n and id_Curso=(SELECT id FROM Cursos where id=:curso)").setParameter("c", d.getSeriacao()).setParameter("n", d.getSerie()).setParameter("curso", d.getCurso().getId()).list();
         sessao.beginTransaction().commit();
         if (res.isEmpty()) {
             return true;
