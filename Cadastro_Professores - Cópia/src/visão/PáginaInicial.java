@@ -53,6 +53,7 @@ public class PáginaInicial extends javax.swing.JFrame {
 
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
+        painelMolde = new javax.swing.JPanel();
         jToolBar1 = new javax.swing.JToolBar();
         jButton7 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JToolBar.Separator();
@@ -106,7 +107,9 @@ public class PáginaInicial extends javax.swing.JFrame {
         setBackground(new java.awt.Color(0, 204, 51));
         setPreferredSize(new java.awt.Dimension(820, 600));
 
-        jToolBar1.setBackground(new java.awt.Color(255, 255, 255));
+        painelMolde.setBackground(new java.awt.Color(204, 255, 204));
+
+        jToolBar1.setBackground(new java.awt.Color(204, 255, 204));
         jToolBar1.setRollover(true);
 
         jButton7.setBackground(new java.awt.Color(255, 255, 255));
@@ -186,6 +189,19 @@ public class PáginaInicial extends javax.swing.JFrame {
             }
         });
         jToolBar1.add(jButton2);
+
+        javax.swing.GroupLayout painelMoldeLayout = new javax.swing.GroupLayout(painelMolde);
+        painelMolde.setLayout(painelMoldeLayout);
+        painelMoldeLayout.setHorizontalGroup(
+            painelMoldeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 789, Short.MAX_VALUE)
+        );
+        painelMoldeLayout.setVerticalGroup(
+            painelMoldeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelMoldeLayout.createSequentialGroup()
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 439, Short.MAX_VALUE))
+        );
 
         jMenuBar1.setBackground(new java.awt.Color(0, 0, 51));
         jMenuBar1.setMaximumSize(new java.awt.Dimension(442, 32769));
@@ -428,13 +444,11 @@ public class PáginaInicial extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 715, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(painelMolde, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(353, Short.MAX_VALUE))
+            .addComponent(painelMolde, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -541,7 +555,7 @@ public class PáginaInicial extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        new Cadastrar_Disciplina().setVisible(true);
+        new Cadastrar_Disciplina().setVisible(true);       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -641,6 +655,7 @@ public class PáginaInicial extends javax.swing.JFrame {
     private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar.Separator jSeparator3;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JPanel painelMolde;
     private javax.swing.JMenuItem prof_Alteracao;
     private javax.swing.JMenuItem todasTurmas;
     private javax.swing.JMenuItem todos_Afastados;
